@@ -1,1 +1,0 @@
-# (S)CSS style guide
