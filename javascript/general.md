@@ -9,7 +9,7 @@ Variables ***must*** be defined one per line.
 ```js
 var one   = 'one',
     two   = 'two',
-    three = 'three',
+    three = 'three';
 ```
 
 **Good:**
