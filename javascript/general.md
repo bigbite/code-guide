@@ -79,3 +79,27 @@ function doSomething ( arg,arg2 ) {
 function doSomething (arg, arg2) {
 
 }
+```
+
+### For statements
+You ***should*** not calculate length on each iteration and you ***should*** also declare the iterator varibale at the
+top of a function.
+
+***Bad***
+```js
+for (var i = 0; i < thing.length; i++) {
+  // do stuff
+}
+```
+
+***Good***
+```js
+var thingLength = thing.length;
+var i;
+
+for (i = 0; i < thingLength; i++) {
+  // do stuff
+}
+```
+
+
