@@ -125,6 +125,7 @@ When using curly braces, ***always*** open them on the same line as the statemen
 function foo () {
   // something
 }
+```
 
 **Bad:**
 ```js
