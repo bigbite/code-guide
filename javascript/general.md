@@ -44,3 +44,18 @@ Variable names ***should*** be in `lowerCamelCase`, except in two instances:
 Boolean vars ***should*** be set to `true` or `false`, do not use `1` and `0` unless you have good reason.
 
 When intentionally setting/removing a value, you ***should*** set it to `null`, rather than `undefined`.
+
+
+## General
+
+### Encapsulation
+
+Code blocks ***should*** be wrapped in an IIFE to prevent polluting the global namespace.
+
+```js
+(function (window, document, $) {
+
+  // code goes here
+
+}(window, document, jQuery));
+```
