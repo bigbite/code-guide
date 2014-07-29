@@ -82,7 +82,7 @@ function doSomething (arg, arg2) {
 ```
 
 ### For statements
-You ***should*** not calculate length on each iteration and you ***should*** also declare the iterator varibale at the
+You ***should not*** calculate length on each iteration and you ***should*** also declare the iterator varibale at the
 top of a function.
 
 ***Bad:***
