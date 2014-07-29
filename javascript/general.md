@@ -102,6 +102,22 @@ for (i = 0; i < thingLength; i++) {
 }
 ```
 
+### Equality
+***Always*** use strict (in)equality operators.
+
+**Good:**
+```js
+a === b;
+c !== d;
+```
+
+**Bad:**
+```js
+a == b;
+c != d;
+```
+
+
 ## Comments
 
 ### JSDoc
