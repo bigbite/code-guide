@@ -117,6 +117,37 @@ if (!a.length) {
 }
 ```
 
+### Adding Properties to Constructors
+Adding properties to an object by overwriting the prototype makes inheritance impossible; appending to a prototype means that all properties inherited from the parent are still accessible to the child.
+
+
+**Example:**
+```js
+function BigBite () {
+  console.log('foo');
+}
+```
+
+**Bad:**
+```js
+BigBite.prototype = {
+  staff: ['jason', 'mark', 'iain', 'natalie'],
+
+  addMember: function (name) {
+    this.staff.push(name);
+  }
+};
+```
+
+**Good:**
+```js
+BigBite.prototype.staff = ['jason', 'mark', 'iain', 'natalie'];
+BigBite.prototype.addMember = function (name) {
+  this.staff.push(name);
+};
+```
+
+
 ## Functions
 
 ### Strict Pragma
