@@ -110,7 +110,10 @@ $header
   .height(50)
   .width(60)
   .find('li')
-    .addClass('foo')
+    .on('click', function () {
+        $(this).addClass('foo');
+    })
+    .css({'background': 'pink'})
     .end()
   .find('span')
     .fadeIn();
