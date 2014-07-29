@@ -257,6 +257,18 @@ function doSomething (arg, arg2) {
 }
 ```
 
+### Argument lists
+If arguments supplied (whether it be to a conditional or a function) result in large line lengths, you ***should*** to
+introduce line breaks and the delimater ***must*** be on the start of the line.
+
+**Good:**
+```js
+if (conditionOne() && conditionTwo() && conditionThree()
+  && reallyLongConditionFourThatTakesUpALotOfSpace()) {
+}
+```
+
+
 ### For statements
 You ***should not*** calculate length on each iteration and you ***should*** also declare the iterator varibale at the
 top of a function.
