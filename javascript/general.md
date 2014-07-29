@@ -117,6 +117,22 @@ a == b;
 c != d;
 ```
 
+### Curly braces
+When using curly braces, ***always*** open them on the same line as the statement.
+
+**Good:**
+```js
+function foo () {
+  // something
+}
+
+**Bad:**
+```js
+function foo ()
+{
+  // something
+}
+```
 
 ## Comments
 
