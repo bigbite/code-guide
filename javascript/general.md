@@ -46,6 +46,25 @@ Boolean vars ***should*** be set to `true` or `false`, do not use `1` and `0` un
 When intentionally setting/removing a value, you ***should*** set it to `null`, rather than `undefined`.
 
 
+## Functions
+
+### Parentheses
+You ***must*** leave a space before and after function parentheses.
+
+**Bad:**
+```js
+function foo(){
+  // stuff
+}
+```
+
+**Good:**
+```js
+function foo () {
+  // stuff
+}
+```
+
 ## General
 
 ### Encapsulation
