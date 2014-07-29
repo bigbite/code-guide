@@ -102,4 +102,26 @@ for (i = 0; i < thingLength; i++) {
 }
 ```
 
+## Comments
 
+## JSDoc
+All functions ***should*** be preceded by a docblock comment following the [JSDoc](http://usejsdoc.org/) methology.
+
+```js
+/**
+ * Grabs the selector, does some funky stuff with it, and returns the object
+ * @param  {jQuery Object} selector the selector upon which we're performing logic
+ * @return {jQuery Object}          the selector in its new state
+ */
+function doSomething (selector) {
+    selector = selector || $('#header');
+
+    selector
+      .height(50)
+      .width(60)
+      .addClass('sexy')
+      .fadeOut();
+
+    return selector;
+}
+```
