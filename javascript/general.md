@@ -118,7 +118,8 @@ if (!a.length) {
 ```
 
 ### Adding Properties to Constructors
-Adding properties to an object by overwriting the prototype makes inheritance impossible; appending to a prototype means that all properties inherited from the parent are still accessible to the child.
+Adding properties to an object by overwriting the prototype makes inheritance impossible; appending to a prototype means that 
+all properties inherited from the parent are still accessible to the child.
 
 
 **Example:**
@@ -146,6 +147,29 @@ BigBite.prototype.addMember = function (name) {
   this.staff.push(name);
 };
 ```
+
+## Events
+
+### Binding Data to Events
+When passing data to an event you **should** pass an object, rather than a value; passing an object allows additional data to be 
+added at a later date.
+
+**Bad:**
+```js
+var.fire('eventName', value);
+var.listen('eventName', function (event, value) {
+  // do something with value
+});
+```
+
+**Good:**
+```js
+var.fire('eventName', { item: value });
+var.listen('eventName', function (event, data) {
+  // do something with `data.item`
+});
+```
+
 
 
 ## Functions
