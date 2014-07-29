@@ -63,7 +63,7 @@ Code blocks ***should*** be wrapped in an IIFE to prevent polluting the global n
 ### Argument spacing
 You ***should*** not add whitespace between parens and arguments. You ***should*** space between comma-separated arguments.
 
-** Bad **
+**Bad**
 ```js
 function doSomething ( arg, arg2 ) {
 
@@ -74,7 +74,7 @@ function doSomething ( arg,arg2 ) {
 }
 ```
 
-** Good **
+**Good**
 ```js
 function doSomething (arg, arg2) {
 
