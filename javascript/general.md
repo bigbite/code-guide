@@ -81,6 +81,26 @@ function foo () {
 }
 ```
 
+### Dependency inversion
+Functions ***should*** not, where possible, be bound to specifics. Instead, they should perform logic upon parameters
+passed to the function.
+
+**Bad:**
+```js
+function doSomething (selector) {
+  selector = $('#header');
+  // ...
+}
+```
+
+**Good:**
+```js
+function doSomething (selector) {
+  selector = selector || $('#header');
+  // ...
+}
+```
+
 ## General
 
 ### Encapsulation
