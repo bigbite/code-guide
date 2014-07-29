@@ -61,7 +61,7 @@ theArray.forEach(function (value, index) {
 
 ## Loops
 When performing object loops, you ***must*** wrap the loop body in an if statement, to check that the current property 
-is a member of the subject, and not an inherited property:
+is a member of the subject, and not an inherited property.
 
 **Bad:**
 ```js
@@ -77,6 +77,19 @@ for (prop in theObject) {
     // logic
   }
 }
+```
+
+### Accessing Object Properties
+Object properties ***must*** be accessed using dot notation when the property being accessed is not dynamic.
+
+**Bad:**
+```js
+console.log(object[prop][anotherProp]);
+```
+
+**Good:**
+```js
+console.log(object.prop.anotherProp);
 ```
 
 
