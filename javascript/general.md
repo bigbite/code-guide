@@ -48,6 +48,22 @@ When intentionally setting/removing a value, you ***should*** set it to `null`, 
 
 ## Functions
 
+### Strict Pragma
+The `'use strict'`; declaration ***must*** be used in the topmost level of function hierarchy. In many cases, this will be the
+first line of the IIFE body.
+
+```js
+(function (window, document) {
+  'use strict';
+
+  function doSomething () {
+  }
+
+  function doSomethingElse () {
+  }
+}(window, document));
+```
+
 ### Parentheses
 You ***must*** leave a space before and after function parentheses.
 
