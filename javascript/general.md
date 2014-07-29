@@ -92,6 +92,30 @@ console.log(object[prop][anotherProp]);
 console.log(object.prop.anotherProp);
 ```
 
+### Prototype Extension
+***Never*** extend the prototype of native objects, or overwrite native object properties.
+
+**Bad:**
+```js
+Array.prototype.empty = function () {
+  return !this.length;
+}
+
+var a = [];
+
+if (a.empty()) {
+console.log('a is empty');
+}
+```
+
+**Good:**
+```js
+var a = [];
+
+if (!a.length) {
+  console.log('a is empty');
+}
+```
 
 ## Functions
 
