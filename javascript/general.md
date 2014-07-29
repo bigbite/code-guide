@@ -46,6 +46,18 @@ Boolean vars ***should*** be set to `true` or `false`, do not use `1` and `0` un
 When intentionally setting/removing a value, you ***should*** set it to `null`, rather than `undefined`.
 
 
+## Arrays
+
+### Loops
+It is ***preferred*** to use ES5 array loops, where applicable:
+
+```js
+theArray.forEach(function (value, index) {
+  newArr.push([index, value]);
+});
+```
+
+
 ## Functions
 
 ### Strict Pragma
