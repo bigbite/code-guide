@@ -104,7 +104,7 @@ for (i = 0; i < thingLength; i++) {
 
 ## Comments
 
-## JSDoc
+### JSDoc
 All functions ***should*** be preceded by a docblock comment following the [JSDoc](http://usejsdoc.org/) methology.
 
 ```js
@@ -124,4 +124,25 @@ function doSomething (selector) {
 
     return selector;
 }
+```
+
+### General comments
+Multi line comments ***should*** use the `/* ... */` syntax; single line comments should use the `// ...` syntax.
+
+**Bad:**
+```
+// This is not a very good
+// multi line comment
+
+/* This is not a very good single line comment */
+```
+
+**Good:**
+```
+/**
+ * This is an awesome
+ * multi line comment
+ */
+
+// Super single line comment
 ```
