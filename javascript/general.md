@@ -57,6 +57,28 @@ theArray.forEach(function (value, index) {
 });
 ```
 
+## Objects
+
+## Loops
+When performing object loops, you ***must*** wrap the loop body in an if statement, to check that the current property 
+is a member of the subject, and not an inherited property:
+
+**Bad:**
+```js
+for (prop in theObject) {
+  // logic
+}
+```
+
+**Good:**
+```js
+for (prop in theObject) {
+  if (theObject.hasOwnProperty(prop)) {
+    // logic
+  }
+}
+```
+
 
 ## Functions
 
