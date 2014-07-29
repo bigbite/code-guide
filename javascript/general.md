@@ -358,6 +358,31 @@ var _somePrivateMethod = function () {
 }
 ```
 
+### Return Values
+
+**Bad:**
+```js
+function doSomething () {
+  var $content = $('#content');
+
+  $content.css({ marginTop : '10px' });
+}
+
+doSomething();
+
+$('#content').fadeOut();
+```
+
+**Good:**
+```js
+function doSomething () {
+  var $content = $('#content');
+
+  return $content.css({ marginTop : '10px' });
+}
+
+doSomething().fadeOut();
+```
 
 ## Comments
 
