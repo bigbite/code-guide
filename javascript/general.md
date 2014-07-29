@@ -206,6 +206,18 @@ function foo ()
 }
 ```
 
+### Private Methods
+Private methods and variables ***should*** be prefixed with an underscore.
+
+```js
+var _somePrivateVar = 'I am private';
+
+var _somePrivateMethod = function () {
+  // I am private
+}
+```
+
+
 ## Comments
 
 ### JSDoc
