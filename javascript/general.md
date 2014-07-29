@@ -387,7 +387,7 @@ function doSomething (selector) {
 Multi line comments ***should*** use the `/* ... */` syntax; single line comments should use the `// ...` syntax.
 
 **Bad:**
-```
+```js
 // This is not a very good
 // multi line comment
 
@@ -395,7 +395,7 @@ Multi line comments ***should*** use the `/* ... */` syntax; single line comment
 ```
 
 **Good:**
-```
+```js
 /**
  * This is an awesome
  * multi line comment
