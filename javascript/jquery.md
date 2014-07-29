@@ -1,9 +1,27 @@
 # jQuery style guide
 
+## Document Ready
+JavaScript placed in the footer ***must not** use the jQuery Document Ready function, as by the time the
+script is parsed, the document will already be ready. Use the IIFE to pass in jQuery.
+
+**Bad:**
+```js
+$(document).ready(function () {
+   // ... 
+});
+```
+
+**Good:**
+```js
+(function (document, window, $) {
+  // ...
+}(document, window, jQuery));
+```
+
 ## Selectors
 
 ### Assignment
-When using jQuery selectors, you ***should*** assign them to variables:
+When using jQuery selectors, you ***should*** assign them to variables.
 
 **Bad:**
 ```js
