@@ -59,3 +59,23 @@ Code blocks ***should*** be wrapped in an IIFE to prevent polluting the global n
 
 }(window, document, jQuery));
 ```
+
+### Argument spacing
+You ***should*** not add whitespace between parens and arguments. You ***should*** space between comma-separated arguments.
+
+** Bad **
+```js
+function doSomething ( arg, arg2 ) {
+
+}
+
+function doSomething ( arg,arg2 ) {
+
+}
+```
+
+** Good**
+```js
+function doSomething (arg, arg2) {
+
+}
