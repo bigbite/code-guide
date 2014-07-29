@@ -371,15 +371,15 @@ All functions ***should*** be preceded by a docblock comment following the [JSDo
  * @return {jQuery Object}          the selector in its new state
  */
 function doSomething (selector) {
-    selector = selector || $('#header');
+  selector = selector || $('#header');
 
-    selector
-      .height(50)
-      .width(60)
-      .addClass('sexy')
-      .fadeOut();
+  selector
+    .height(50)
+    .width(60)
+    .addClass('sexy')
+    .fadeOut();
 
-    return selector;
+  return selector;
 }
 ```
 
