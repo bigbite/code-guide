@@ -74,7 +74,7 @@ function doSomething ( arg,arg2 ) {
 }
 ```
 
-** Good**
+** Good **
 ```js
 function doSomething (arg, arg2) {
 
