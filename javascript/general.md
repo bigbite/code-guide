@@ -101,6 +101,22 @@ function doSomething (selector) {
 }
 ```
 
+### Method chaining
+When method chaining, you ***should*** break each method in the chain onto a new line. Where neccesary add line breaks
+to aid readability.
+
+```js
+$header
+  .height(50)
+  .width(60)
+  .find('li')
+    .addClass('foo')
+    .end()
+  .find('span')
+    .fadeIn();
+```
+
+
 ## General
 
 ### Encapsulation
