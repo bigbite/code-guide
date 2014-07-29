@@ -403,3 +403,10 @@ Multi line comments ***should*** use the `/* ... */` syntax; single line comment
 
 // Super single line comment
 ```
+
+## Libraries
+You **should** only use one library at a time. Reccomended librarys:
+
+- [jQuery](http://jquery.com/)
+- [Lo-Dash](http://lodash.com/)
+- [AngularJS](https://angularjs.org/)
