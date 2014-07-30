@@ -1,19 +1,19 @@
 // Don't do this
 $('.headhesive .mobile-nav').on('click', function() {
-    $('.headhesive .main-nav').slideToggle();
+  $('.headhesive .main-nav').slideToggle();
 });
 
 $('.banner:not(.headhesive) .mobile-nav').on('click', function() {
-    $('.banner:not(.headhesive) .site-logo').removeClass('logo--alt');
+  $('.banner:not(.headhesive) .site-logo').removeClass('logo--alt');
 
-    $('.banner:not(.headhesive) .main-nav').slideToggle(300, function() {
+  $('.banner:not(.headhesive) .main-nav').slideToggle(300, function() {
     if ($('.banner:not(.headhesive) .main-nav').is(':visible') !== true) {
-            $('.banner:not(.headhesive) .site-logo').removeClass('logo--alt');
-        }
-    });
-    if ($('.banner:not(.headhesive) .main-nav').is(':visible') === true) {
-        $('.banner:not(.headhesive) .site-logo').addClass('logo--alt');
+      $('.banner:not(.headhesive) .site-logo').removeClass('logo--alt');
     }
+  });
+  if ($('.banner:not(.headhesive) .main-nav').is(':visible') === true) {
+    $('.banner:not(.headhesive) .site-logo').addClass('logo--alt');
+  }
 });
 
 
@@ -40,7 +40,7 @@ var classToToggle   = 'logo--alt';
  * @return {Boolean}                   true or false
  */
 function isVisible ($selector) {
-    return !!$selector.is(':visible');
+  return !!$selector.is(':visible');
 }
 
 /**
@@ -51,12 +51,12 @@ function isVisible ($selector) {
  * @return {jQuery object}            the jQuery object
  */
 function toggleClassOnVisibility ($selector, className) {
-    if (isVisible($selector)) {
-        $selector.addClass(className);
-    } else {
-        $selector.removeClass(className);
-    }
-    return $selector;
+  if (isVisible($selector)) {
+    $selector.addClass(className);
+  } else {
+    $selector.removeClass(className);
+  }
+  return $selector;
 }
 
 /**
@@ -64,8 +64,8 @@ function toggleClassOnVisibility ($selector, className) {
  * toggle class on site logo
  */
 function navActions () {
-    $navMain.slideToggle();
-    toggleClassOnVisibility($siteLogo, classToToggle);
+  $navMain.slideToggle();
+  toggleClassOnVisibility($siteLogo, classToToggle);
 }
 
 /**
@@ -73,7 +73,7 @@ function navActions () {
  * the visibility of the hedhesive main nav.
  */
 $navMobileClone.on('click', function () {
-    $navClone.slideToggle();
+  $navClone.slideToggle();
 });
 
 /**
