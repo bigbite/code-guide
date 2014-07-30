@@ -60,8 +60,7 @@ theArray.forEach(function (value, index) {
 ## Objects
 
 ## Loops
-When performing object loops, you ***must*** wrap the loop body in an if statement, to check that the current property
-is a member of the subject, and not an inherited property.
+When performing object loops, you ***must*** wrap the loop body in an if statement, to check that the current property is a member of the subject, and not an inherited property.
 
 **Bad:**
 ```js
@@ -118,8 +117,7 @@ if (!a.length) {
 ```
 
 ### Adding Properties to Constructors
-Adding properties to an object by overwriting the prototype makes inheritance impossible; appending to a prototype means that
-all properties inherited from the parent are still accessible to the child.
+Adding properties to an object by overwriting the prototype makes inheritance impossible; appending to a prototype means that all properties inherited from the parent are still accessible to the child.
 
 
 **Example:**
@@ -151,8 +149,7 @@ BigBite.prototype.addMember = function (name) {
 ## Events
 
 ### Binding Data to Events
-When passing data to an event you **should** pass an object, rather than a value; passing an object allows additional data to be
-added at a later date.
+When passing data to an event you **should** pass an object, rather than a value; passing an object allows additional data to be added at a later date.
 
 **Bad:**
 ```js
@@ -175,8 +172,7 @@ var.listen('eventName', function (event, data) {
 ## Functions
 
 ### Strict Pragma
-The `'use strict'`; declaration ***must*** be used in the topmost level of function hierarchy. In many cases, this will be the
-first line of the IIFE body.
+The `'use strict'`; declaration ***must*** be used in the topmost level of function hierarchy. In many cases, this will be the first line of the IIFE body.
 
 ```js
 (function (window, document) {
@@ -208,8 +204,7 @@ function foo () {
 ```
 
 ### Dependency inversion
-Functions ***should not***, where possible, be bound to specifics. Instead, they should perform logic upon parameters
-passed to the function.
+Functions ***should not***, where possible, be bound to specifics. Instead, they should perform logic upon parameters passed to the function.
 
 **Bad:**
 ```js
@@ -228,8 +223,7 @@ function doSomething ($selector) {
 ```
 
 ### Method chaining
-When method chaining, you ***should*** break each method in the chain onto a new line. Where neccesary add line breaks
-to aid readability.
+When method chaining, you ***should*** break each method in the chain onto a new line. Where neccesary add line breaks to aid readability.
 
 ```js
 $header
@@ -282,8 +276,7 @@ function doSomething (arg, arg2) {
 ```
 
 ### Argument lists
-If arguments supplied (whether it be to a conditional or a function) result in large line lengths, you ***should***
-introduce line breaks, and the delimater ***must*** be on the start of the line.
+If arguments supplied (whether it be to a conditional or a function) result in large line lengths, you ***should*** introduce line breaks, and the delimater ***must*** be on the start of the line.
 
 **Good:**
 ```js
@@ -294,8 +287,7 @@ if (conditionOne() && conditionTwo() && conditionThree()
 
 
 ### For statements
-You ***should not*** calculate length on each iteration and you ***should*** also declare the iterator variable at the
-top of a function.
+You ***should not*** calculate length on each iteration and you ***should*** also declare the iterator variable at the top of a function.
 
 ***Bad:***
 ```js
