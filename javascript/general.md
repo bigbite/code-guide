@@ -60,7 +60,7 @@ theArray.forEach(function (value, index) {
 ## Objects
 
 ## Loops
-When performing object loops, you ***must*** wrap the loop body in an if statement, to check that the current property 
+When performing object loops, you ***must*** wrap the loop body in an if statement, to check that the current property
 is a member of the subject, and not an inherited property.
 
 **Bad:**
@@ -118,7 +118,7 @@ if (!a.length) {
 ```
 
 ### Adding Properties to Constructors
-Adding properties to an object by overwriting the prototype makes inheritance impossible; appending to a prototype means that 
+Adding properties to an object by overwriting the prototype makes inheritance impossible; appending to a prototype means that
 all properties inherited from the parent are still accessible to the child.
 
 
@@ -151,7 +151,7 @@ BigBite.prototype.addMember = function (name) {
 ## Events
 
 ### Binding Data to Events
-When passing data to an event you **should** pass an object, rather than a value; passing an object allows additional data to be 
+When passing data to an event you **should** pass an object, rather than a value; passing an object allows additional data to be
 added at a later date.
 
 **Bad:**
@@ -208,21 +208,21 @@ function foo () {
 ```
 
 ### Dependency inversion
-Functions ***should*** not, where possible, be bound to specifics. Instead, they should perform logic upon parameters
+Functions ***should not***, where possible, be bound to specifics. Instead, they should perform logic upon parameters
 passed to the function.
 
 **Bad:**
 ```js
-function doSomething (selector) {
-  selector = $('#header');
+function doSomething () {
+  $selector = $('#header');
   // ...
 }
 ```
 
 **Good:**
 ```js
-function doSomething (selector) {
-  selector = selector || $('#header');
+function doSomething ($selector) {
+  $selector = $selector || $('#header');
   // ...
 }
 ```
@@ -261,7 +261,7 @@ Code blocks ***should*** be wrapped in an IIFE to prevent polluting the global n
 ```
 
 ### Argument spacing
-You ***should*** not add whitespace between parens and arguments. You ***should*** space between comma-separated arguments.
+You ***should not*** add whitespace between parens. and arguments. You ***should*** space between comma-separated arguments.
 
 **Bad:**
 ```js
@@ -282,8 +282,8 @@ function doSomething (arg, arg2) {
 ```
 
 ### Argument lists
-If arguments supplied (whether it be to a conditional or a function) result in large line lengths, you ***should*** to
-introduce line breaks and the delimater ***must*** be on the start of the line.
+If arguments supplied (whether it be to a conditional or a function) result in large line lengths, you ***should***
+introduce line breaks, and the delimater ***must*** be on the start of the line.
 
 **Good:**
 ```js
@@ -294,7 +294,7 @@ if (conditionOne() && conditionTwo() && conditionThree()
 
 
 ### For statements
-You ***should not*** calculate length on each iteration and you ***should*** also declare the iterator varibale at the
+You ***should not*** calculate length on each iteration and you ***should*** also declare the iterator variable at the
 top of a function.
 
 ***Bad:***
@@ -315,18 +315,20 @@ for (i = 0; i < thingLength; i++) {
 ```
 
 ### Equality
-***Always*** use strict (in)equality operators.
+***Always*** use strict (in)equality operators, except when checking if something is `null` or `undefined`, when you may use the type-converting `==` syntax.
 
 **Good:**
 ```js
 a === b;
 c !== d;
+e == null;
 ```
 
 **Bad:**
 ```js
 a == b;
 c != d;
+e === null || e === undefined;
 ```
 
 ### Curly braces
@@ -359,6 +361,7 @@ var _somePrivateMethod = function () {
 ```
 
 ### Return Values
+When possible, return an object from a function, to enable method chaining.
 
 **Bad:**
 ```js
@@ -430,7 +433,7 @@ Multi line comments ***should*** use the `/* ... */` syntax; single line comment
 ```
 
 ## Libraries
-You **should** only use one library at a time. Reccomended librarys:
+You **should** only use one library at a time. Recommended libraries:
 
 - [jQuery](http://jquery.com/)
 - [Lo-Dash](http://lodash.com/)
