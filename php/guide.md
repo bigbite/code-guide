@@ -49,18 +49,17 @@ $variable = [
 ];
 
 // omg wat
-$sillyArrayKeys = [
+$silly_array_keys = [
     'this_is_a_really_long_key_name' => 'wordpress, am i right?!',
     'small_key'                      => 'eww',
     'tiny_key'                       => 'lolwut'
 ];
 // do this, instead
-$sillyArrayKeys = [
+$silly_array_keys = [
     'this_is_a_really_long_key_name' => 'wordpress, am i right?!',
     'small_key' => 'yeah',
     'tiny_key'  => 'looks a bit better'
 ];
-?>
 ```
 
 ### Variable Types
@@ -96,7 +95,6 @@ class Bar
         }
     }
 }
-?>
 ```
 
 ### Parentheses
@@ -113,7 +111,6 @@ function foo($arg1, $arg2)
 }
 
 foo('bar', 'baz');
-?>
 ```
 You **must not** use parentheses with the following - they are statements, not functions.
 - `include`, `include_once`
@@ -136,7 +133,6 @@ return $variable;
 include ('./foo.php');
 require ('./bar.php');
 return ($variable);
-?>
 ```
 
 ### Comments
@@ -155,7 +151,6 @@ You **must not** modify the PHP environment at runtime; i.e. don't do this:
 ```php
 <?php
 ini_set('foo', 'bar');
-?>
 ```
 
 ## Control Structures
@@ -166,7 +161,6 @@ In single-line `if` statements, you **may** leave out the parentheses.
 <?php
 if (/* expression */)
     // do something
-?>
 ```
 
 For multi-line `if` statements, or one with multiple conditions, you **must** follow this convention. Note the curly brace placement, whitespacing, and indentation.
@@ -191,7 +185,6 @@ else
 {
     // nop
 }
-?>
 ```
 
 If you have multiple expressions per condition, you **should** split them onto multiple lines if it will aid readability, with the operands preceeding each expression.
@@ -210,7 +203,6 @@ if (  (conditionOne() && conditionTwo())
 {
     // do something
 }
-?>
 ```
 Or, in some circumstancces, it may be better to simplify the expressions.
 ```php
@@ -220,7 +212,6 @@ if ($is_foo || conditionThree())
 {
     // do something
 }
-?>
 ```
 
 When using ternary operators, you **may** break each clause onto a new line.
@@ -229,7 +220,6 @@ When using ternary operators, you **may** break each clause onto a new line.
 $a = $condition === true
    ? 'foo'
    : 'bar';
-?>
 ```
 
 ### While/for/foreach
@@ -260,7 +250,6 @@ foreach ($arrYarr as $key => $value)
 {
     // do something
 }
-?>
 ```
 
 ### Switch
@@ -286,7 +275,6 @@ switch (/* var */)
         // yarp
         break;
 }
-?>
 ```
 
 ### Try/catch
@@ -304,7 +292,6 @@ catch (AnotherExceptionType $e)
 {
     // do something horrid with this error
 }
-?>
 ```
 
 ## Classes: General
@@ -324,7 +311,6 @@ Methods **should** be declared in the following order:
 
 use Vendor\Foo;
 // ...
-?>
 ```
 
 
@@ -337,14 +323,13 @@ use Vendor\Foo;
 use VendorTwo\Bar as Baz;
 
 // ...
-?>
+
 
 // not
 <?php namespace BigBite\Foo\Bar;
 use Vendor\Foo;
 use VendorTwo\Bar;
 // ...
-?>
 ```
 
 ## Classes: Class Declarations
@@ -353,7 +338,6 @@ When defining classes that extend/implement other classes/interfaces, those decl
 <?php namespace BigBite\Foo;
 
 class FooBar extends ParentFoo implements \FooInterface {
-?>
 ```
 However, if there is a list of implements, these **may** be split across several lines, where this aids readability.
 ```php
@@ -363,7 +347,6 @@ class FooBar extends ParentFoo implements
     \FooInterface,
     \BarInterface,
     \BazInterface {
-?>
 ```
 
 ## Classes: Visibility
@@ -383,7 +366,6 @@ class Foo
 
     // ...
 }
-?>
 ```
 
 ## Functions: General
@@ -413,7 +395,6 @@ function foo($bar)
         return false;
     }
 }
-?>
 ```
 
 Arguments with defaults **should** go at the end of the argument list.
@@ -423,7 +404,6 @@ function fooBar($arg1, $arg2, $arg3, $arg4 = array(1, 2, 3, 4, 5))
 {
     // do something
 }
-?>
 ```
 
 ## Functions: Closures
@@ -453,5 +433,4 @@ $closureWithLongArgsAndVars = function (
 {
     // do something
 }
-?>
 ```
