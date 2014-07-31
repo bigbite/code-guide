@@ -10,11 +10,10 @@ You **must not** use PHP short tags, or ASP-style tags.
 ```php
 // use
 <?php ?>
-<?php echo ''; ?>
+<?php echo ''; ?> /* or */ <?= ?>
 
 // not
 <? ?>
-<?= ?>
 <% %>
 <%= %>
 ```
