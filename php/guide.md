@@ -33,6 +33,7 @@ You **must not** use PHP short tags, or ASP-style tags.
 **Always** indent using four spaces; **never** use tabs.
 When building arrays, you **should** insert a line break after opening the array, and indent key/value pairs one level beyond the opening bracket. You **should**, where possible, align the `=>` operators.
 ```php
+<?php
 // looks good!
 $variable = [
     'foo'   => 0,
@@ -60,6 +61,7 @@ $sillyArrayKeys = [
     'small_key' => 'yeah',
     'tiny_key'  => 'looks a bit better'
 ];
+?>
 ```
 
 ### Variable Types
@@ -72,6 +74,7 @@ Concatenate strings with the `.` operator; when concatenating on multiple lines,
 For class declarations, the opening curly brace **must** occur on the same line as the declaration, with one space between the declaration and the brace.
 For function declarations and control structions, the opening and closing curly braces **must** occur on their own lines, indented to the same column as the start of the declaration.
 ```php
+<?php
 // do this
 class Bar {
 
@@ -94,12 +97,14 @@ class Bar
         }
     }
 }
+?>
 ```
 
 ### Parentheses
 For function declarations and calls, you **must not** insert a space between the function name and the parentheses.
 For control structures, you **must** insert a space before and after the parentheses; you **must not** insert spaces inside the parentheses, except when multiple arguments are passed, in which case you **must** insert a space after every comma.
 ```php
+<?php
 function foo($arg1, $arg2)
 {
     if (!is_null($arg1) && !is_null($arg2))
@@ -109,6 +114,7 @@ function foo($arg1, $arg2)
 }
 
 foo('bar', 'baz');
+?>
 ```
 You **must not** use parentheses with the following - they are statements, not functions.
 - `include`, `include_once`
@@ -121,6 +127,7 @@ You **should** use parentheses with the following;
 
 **Prefer** the `*_once` variants for includes/requires, when applicable.
 ```php
+<?php
 // do this
 include_once './foo.php';
 require_once './bar.php';
@@ -130,6 +137,7 @@ return $variable;
 include ('./foo.php');
 require ('./bar.php');
 return ($variable);
+?>
 ```
 
 ### Comments
@@ -146,7 +154,9 @@ You **must not** use `eval()`. Ever.
 You **must** terminate every statement with a semi-colon (`;`).
 You **must not** modify the PHP environment at runtime; i.e. don't do this:
 ```php
+<?php
 ini_set('foo', 'bar');
+?>
 ```
 
 ## Control Structures
@@ -154,12 +164,15 @@ ini_set('foo', 'bar');
 ### If
 In single-line `if` statements, you **may** leave out the parentheses.
 ```php
+<?php
 if (/* expression */)
     // do something
+?>
 ```
 
 For multi-line `if` statements, or one with multiple conditions, you **must** follow this convention. Note the curly brace placement, whitespacing, and indentation.
 ```php
+<?php
 if (/* expression */)
 {
     // do something
@@ -179,10 +192,12 @@ else
 {
     // nop
 }
+?>
 ```
 
 If you have multiple expressions per condition, you **should** split them onto multiple lines if it will aid readability, with the operands preceeding each expression.
 ```php
+<?php
 if ((conditionOne()
     && conditionTwo())
     || conditionThree())
@@ -196,26 +211,32 @@ if (  (conditionOne() && conditionTwo())
 {
     // do something
 }
+?>
 ```
 Or, in some circumstancces, it may be better to simplify the expressions.
 ```php
+<?php
 $is_foo = (conditionOne() && conditionTwo());
 if ($is_foo || conditionThree())
 {
     // do something
 }
+?>
 ```
 
 When using ternary operators, you **may** break each clause onto a new line.
 ```php
+<?php
 $a = $condition === true
    ? 'foo'
    : 'bar';
+?>
 ```
 
 ### While/for/foreach
 While/for/foreach loops **must** follow the below pattern.
 ```php
+<?php
 // while
 while (/* expresion */)
 {
@@ -240,11 +261,13 @@ foreach ($arrYarr as $key => $value)
 {
     // do something
 }
+?>
 ```
 
 ### Switch
 Switch statements **must** follow the below convention, with specific emphasis on indentation. If a case falls through, you **must** comment to state that the behaviour is intentional.
 ```php
+<?php
 switch (/* var */)
 {
     case 0:
@@ -264,12 +287,13 @@ switch (/* var */)
         // yarp
         break;
 }
+?>
 ```
 
 ### Try/catch
 Try/catch blocks **must** follow the below pattern.
 ```php
-
+<?php
 try {
     // to do something
 }
@@ -281,6 +305,7 @@ catch (AnotherExceptionType $e)
 {
     // do something horrid with this error
 }
+?>
 ```
 
 ## Classes: General
@@ -300,6 +325,7 @@ Methods **should** be declared in the following order:
 
 use Vendor\Foo;
 // ...
+?>
 ```
 
 
@@ -312,13 +338,14 @@ use Vendor\Foo;
 use VendorTwo\Bar as Baz;
 
 // ...
-
+?>
 
 // not
 <?php namespace BigBite\Foo\Bar;
 use Vendor\Foo;
 use VendorTwo\Bar;
 // ...
+?>
 ```
 
 ## Classes: Class Declarations
@@ -327,6 +354,7 @@ When defining classes that extend/implement other classes/interfaces, those decl
 <?php namespace BigBite\Foo;
 
 class FooBar extends ParentFoo implements \FooInterface {
+?>
 ```
 However, if there is a list of implements, these **may** be split across several lines, where this aids readability.
 ```php
@@ -336,6 +364,7 @@ class FooBar extends ParentFoo implements
     \FooInterface,
     \BarInterface,
     \BazInterface {
+?>
 ```
 
 ## Classes: Visibility
@@ -344,6 +373,7 @@ Keywords `abstract`, and `final` **must** preceed visibility, where applicable.
 Keyword `static` **must** succeed visibility, where applicable.
 You **may** indent the members to the same column to aid readability.
 ```php
+<?php
 class Foo
 {
     protected       $foo;
@@ -354,11 +384,13 @@ class Foo
 
     // ...
 }
+?>
 ```
 
 ## Functions: General
 Return from a function as early as possible.
 ```php
+<?php
 // do this
 function foo($bar)
 {
@@ -381,20 +413,25 @@ function foo($bar)
     {
         return false;
     }
+}
+?>
 ```
 
 Arguments with defaults **should** go at the end of the argument list.
 ```php
+<?php
 function fooBar($arg1, $arg2, $arg3, $arg4 = array(1, 2, 3, 4, 5))
 {
     // do something
 }
+?>
 ```
 
 ## Functions: Closures
 You **must** include a space before and after the parentheses, and after the `use` keyword, if applicable.
 It is **preferred** that the whole statement appear on a single line, except in the case of long argument/variable lists, in which case you **may** use line breaks.
 ```php
+<?php
 $closureWithArgs = function ($arg1, $arg2)
 {
     // do something
@@ -417,4 +454,5 @@ $closureWithLongArgsAndVars = function (
 {
     // do something
 }
+?>
 ```
