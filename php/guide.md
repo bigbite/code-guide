@@ -190,16 +190,16 @@ else
 If you have multiple expressions per condition, you **should** split them onto multiple lines if it will aid readability, with the operands preceeding each expression.
 ```php
 <?php
-if ((conditionOne()
-    && conditionTwo())
-    || conditionThree())
+if ((condition_tne()
+    && condition_two())
+    || condition_three())
 {
     // do something
 }
 
 // or
-if (  (conditionOne() && conditionTwo())
-    || conditionThree)
+if (  (condition_one() && condition_two())
+    || condition_three())
 {
     // do something
 }
@@ -207,8 +207,8 @@ if (  (conditionOne() && conditionTwo())
 Or, in some circumstancces, it may be better to simplify the expressions.
 ```php
 <?php
-$is_foo = (conditionOne() && conditionTwo());
-if ($is_foo || conditionThree())
+$is_foo = (condition_tne() && condition_two());
+if ($is_foo || condition_three())
 {
     // do something
 }
@@ -246,7 +246,7 @@ for ($i = 0; $ < 10; $i++)
 }
 
 // foreach
-foreach ($arrYarr as $key => $value)
+foreach ($arr_yarr as $key => $value)
 {
     // do something
 }
@@ -360,9 +360,9 @@ class Foo
 {
     protected       $foo;
     private         $bar;
-    abstract public $wooHoo;
-    final public    $weeHee;
-    public static   $neeNaw;
+    abstract public $woo_hoo;
+    final public    $wee_hee;
+    public static   $nee_naw;
 
     // ...
 }
@@ -411,24 +411,24 @@ You **must** include a space before and after the parentheses, and after the `us
 It is **preferred** that the whole statement appear on a single line, except in the case of long argument/variable lists, in which case you **may** use line breaks.
 ```php
 <?php
-$closureWithArgs = function ($arg1, $arg2)
+$closure_with_args = function ($arg1, $arg2)
 {
     // do something
 };
 
-$closureWithArgsAndVars = function ($arg1, $arg2) use ($var1, $var2)
+$closure_with_args_and_vars = function ($arg1, $arg2) use ($var1, $var2)
 {
     // do something
 };
 
-$closureWithLongArgsAndVars = function (
-    $argumentOne,
-    $argumentTwo,
-    $argumentThree
+$closure_with_args_and_vars = function (
+    $argument_one,
+    $argument_two,
+    $argument_three
 ) use (
-    $variableOne,
-    $VariableTwo,
-    $VariableThree
+    $variable_one,
+    $Variable_two,
+    $Variable_three
 )
 {
     // do something
