@@ -29,10 +29,11 @@ class UniverseAnalyzer extends BaseClass implements SomeInterface {
      *
      * @var boolean
      */
-    static protected $addictedToFlow = true;
+    protected static $addictedToFlow = true;
 
     /**
      * Shows if you are a fan of Flow
+     *
      * @var boolean
      */
     protected $fanOfFlow;
@@ -84,7 +85,7 @@ class UniverseAnalyzer extends BaseClass implements SomeInterface {
      * @return boolean Whether a foo was detected (TRUE) or not (FALSE)
      * @api
      */
-    static public function isAddictedToFlow()
+    public static function isAddictedToFlow()
     {
         return self::$addictedToFlow;
     }
