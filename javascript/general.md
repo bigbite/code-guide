@@ -119,7 +119,6 @@ if (!a.length) {
 ### Adding Properties to Constructors
 Adding properties to an object by overwriting the prototype makes inheritance impossible; appending to a prototype means that all properties inherited from the parent are still accessible to the child.
 
-
 **Example:**
 ```js
 function BigBite () {
@@ -289,14 +288,14 @@ if (conditionOne() && conditionTwo() && conditionThree()
 ### For statements
 You ***should not*** calculate length on each iteration and you ***should*** also declare the iterator variable at the top of a function.
 
-***Bad:***
+**Bad:**
 ```js
 for (var i = 0; i < thing.length; i++) {
   // do stuff
 }
 ```
 
-***Good:***
+**Good:**
 ```js
 var thingLength = thing.length;
 var i;
@@ -305,6 +304,66 @@ for (i = 0; i < thingLength; i++) {
   // do stuff
 }
 ```
+
+### If / Else Statements
+1. You ***should*** use curly braces when an `if` statement is longer than one line.
+2. You ***should*** use curly braces when an `else` statement is present.
+3. You ***should*** place the `else` statement on the same line as the closing `if` statement.
+4. You ***should not*** use curly braces when the `if` statement is one line.
+5. You ***should not*** inline an `if` statement.
+
+**Bad:**
+```js
+// 1.
+if (something)
+  doThis();
+  andThis();
+  andThat();
+
+// 2.
+if (something)
+  doThis();
+else
+  doThat();
+
+// 3.
+if (something) {
+  doThis();
+}
+else {
+  doThat();
+}
+
+// 4.
+if (something) {
+  done();
+}
+
+// 5.
+if (something) done();
+```
+
+**Good:**
+```js
+// 1.
+if (something) {
+  doThis();
+  andThis();
+  andThat();
+}
+
+// 2, 3.
+if (something) {
+  doThis();
+} else {
+  doThat();
+}
+
+// 4, 5.
+if (something)
+  done();
+```
+
 
 ### Equality
 ***Always*** use strict (in)equality operators, except when checking if something is `null` or `undefined`, when you may use the type-converting `==` syntax.
