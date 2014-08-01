@@ -305,12 +305,12 @@ for (i = 0; i < thingLength; i++) {
 }
 ```
 
-### If/Else Statements
+### If / Else Statements
 1. You ***should*** use curly braces when an `if` statement is longer than one line.
 2. You ***should*** use curly braces when an `else` statement is present.
 3. You ***should*** place the `else` statement on the same line as the closing `if` statement.
-4. You ***should not*** use curly braces when the if statement is one line.
-4. You ***should not*** inline if statement to one line.
+4. You ***should not*** use curly braces when the `if` statement is one line.
+5. You ***should not*** inline an `if` statement.
 
 **Bad:**
 ```js
@@ -349,7 +349,7 @@ if (something) done();
 if (something) {
   doThis();
   andThis();
-  andThat());
+  andThat();
 }
 
 // 2, 3.
