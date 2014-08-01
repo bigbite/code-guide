@@ -400,7 +400,7 @@ function foo($bar)
 Arguments with defaults **should** go at the end of the argument list.
 ```php
 <?php
-function fooBar($arg1, $arg2, $arg3, $arg4 = array(1, 2, 3, 4, 5))
+function fooBar($arg1, $arg2, $arg3, $arg4 = [1, 2, 3, 4, 5])
 {
     // do something
 }
