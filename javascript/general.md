@@ -61,7 +61,6 @@ theArray.forEach(function (value, index) {
 
 ## Loops
 When performing object loops, you ***must*** wrap the loop body in an if statement, to check that the current property is a member of the subject, and not an inherited property.
->>>>>>> 9bb61f43461cf79761eb612688b11397e1fc80db
 
 **Bad:**
 ```js
@@ -119,8 +118,6 @@ if (!a.length) {
 
 ### Adding Properties to Constructors
 Adding properties to an object by overwriting the prototype makes inheritance impossible; appending to a prototype means that all properties inherited from the parent are still accessible to the child.
->>>>>>> 9bb61f43461cf79761eb612688b11397e1fc80db
-
 
 **Example:**
 ```js
@@ -152,7 +149,6 @@ BigBite.prototype.addMember = function (name) {
 
 ### Binding Data to Events
 When passing data to an event you **should** pass an object, rather than a value; passing an object allows additional data to be added at a later date.
->>>>>>> 9bb61f43461cf79761eb612688b11397e1fc80db
 
 **Bad:**
 ```js
