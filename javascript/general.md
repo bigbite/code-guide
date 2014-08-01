@@ -60,7 +60,7 @@ theArray.forEach(function (value, index) {
 ## Objects
 
 ## Loops
-When performing object loops, you ***must*** wrap the loop body in an if statement, to check that the current property 
+When performing object loops, you ***must*** wrap the loop body in an if statement, to check that the current property
 is a member of the subject, and not an inherited property.
 
 **Bad:**
@@ -118,7 +118,7 @@ if (!a.length) {
 ```
 
 ### Adding Properties to Constructors
-Adding properties to an object by overwriting the prototype makes inheritance impossible; appending to a prototype means that 
+Adding properties to an object by overwriting the prototype makes inheritance impossible; appending to a prototype means that
 all properties inherited from the parent are still accessible to the child.
 
 
@@ -151,7 +151,7 @@ BigBite.prototype.addMember = function (name) {
 ## Events
 
 ### Binding Data to Events
-When passing data to an event you **should** pass an object, rather than a value; passing an object allows additional data to be 
+When passing data to an event you **should** pass an object, rather than a value; passing an object allows additional data to be
 added at a later date.
 
 **Bad:**
@@ -297,14 +297,14 @@ if (conditionOne() && conditionTwo() && conditionThree()
 You ***should not*** calculate length on each iteration and you ***should*** also declare the iterator varibale at the
 top of a function.
 
-***Bad:***
+**Bad:**
 ```js
 for (var i = 0; i < thing.length; i++) {
   // do stuff
 }
 ```
 
-***Good:***
+**Good:**
 ```js
 var thingLength = thing.length;
 var i;
@@ -313,6 +313,66 @@ for (i = 0; i < thingLength; i++) {
   // do stuff
 }
 ```
+
+### If/Else Statements
+1. You ***should*** use curly braces when an `if` statement is longer than one line.
+2. You ***should*** use curly braces when an `else` statement is present.
+3. You ***should*** place the `else` statement on the same line as the closing `if` statement.
+4. You ***should not*** use curly braces when the if statement is one line.
+4. You ***should not*** inline if statement to one line.
+
+**Bad:**
+```js
+// 1.
+if (something)
+  doThis();
+  andThis();
+  andThat();
+
+// 2.
+if (something)
+  doThis();
+else
+  doThat();
+
+// 3.
+if (something) {
+  doThis();
+}
+else {
+  doThat();
+}
+
+// 4.
+if (something) {
+  done();
+}
+
+// 5.
+if (something) done();
+```
+
+**Good:**
+```js
+// 1.
+if (something) {
+  doThis();
+  andThis();
+  andThat());
+}
+
+// 2, 3.
+if (something) {
+  doThis();
+} else {
+  doThat();
+}
+
+// 4, 5.
+if (something)
+  done();
+```
+
 
 ### Equality
 ***Always*** use strict (in)equality operators.
