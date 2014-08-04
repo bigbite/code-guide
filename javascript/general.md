@@ -103,7 +103,7 @@ Array.prototype.empty = function () {
 var a = [];
 
 if (a.empty()) {
-console.log('a is empty');
+  console.log('a is empty');
 }
 ```
 
