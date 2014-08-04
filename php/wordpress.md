@@ -142,7 +142,7 @@ When looping (either using WP functions or ACF), you **should** - *where possibl
 
 #### Large Templates
 When building large templates which contain a lot of logic, you **should** break the template up into partials, seperating logic from markup as much as possible. This is especially important when working with [ACF](http://www.advancedcustomfields.com), when one often has nested repeater/flexible content fields.  
-```phtnml
+```phtml
 <?php
 // don't do this
 if(have_rows('bb_cs_content')) {
