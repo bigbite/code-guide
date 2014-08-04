@@ -69,4 +69,74 @@ You **should** structure sass in the following order:
 ```
 
 ## Nesting
-You **should not** nest more than 3 levels deep as it can produce bloated CSS. Only nest when it's what you mean and not because it's convenient.
+You **should not** nest more than 3 levels deep as it can produce bloated CSS. Only nest when it's what you mean and not because it's convenient. Consider re-facotring code to be more modular and re-usable.
+
+Example:
+
+```scss
+// Bad
+.articles {
+  margin-top: 30px;
+
+  .post {
+    width: 100%;
+
+    .title {
+      display: block;
+      font-size: 32px;
+
+      a {
+        color: green;
+      }
+
+      span {
+        font-weight: bold;
+      }
+    }
+
+    .body {
+      font-size: 16px;
+
+      span {
+        font-weight: bold;
+      }
+
+      ul {
+        li {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+        }
+      }
+    }
+  }
+}
+
+// Good
+.articles {
+  margin-top: 30px;
+}
+
+.post {
+  width: 100%;
+  font-size: 16px;
+
+  &__title {
+    display: block;
+    font-size: 32px;
+
+    a {
+      color: green;
+    }
+  }
+}
+
+.list--plain li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.text--bold {
+  font-weight: bold;
+}
