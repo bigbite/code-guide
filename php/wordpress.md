@@ -99,7 +99,7 @@ $wp_query   = $temp_query;
 Within the main body of the template (i.e. when you're mixing markup and PHP), colon notation `:` **must** be used for control structures.  
 You **should not** indent the opening and closing lines of a control structure beyond that of its parent HTML block, but you **should** indent any PHP or HTML within the control structure one level further than structure itself.  
 To aid readability, you **may** line break between control structures and markup within.
-```php
+```phtml
 <div class="container">
 <?php if (have_rows('repeater_row')): while (have_rows('repeater_row')): the_row();
     $the_layout = get_row_layout();
@@ -132,7 +132,7 @@ endwhile; endif; // end repeater ?>
 </div>
 ```
 When looping (either using WP functions or ACF), you **should** - *where possible* - same-line the necessary code.
-```php
+```phtml
 <div class="container">
 <?php if (have_posts()): while (have_posts()): the_post(); ?>
     <!-- content -->
@@ -142,7 +142,7 @@ When looping (either using WP functions or ACF), you **should** - *where possibl
 
 #### Large Templates
 When building large templates which contain a lot of logic, you **should** break the template up into partials, seperating logic from markup as much as possible. This is especially important when working with [ACF](http://www.advancedcustomfields.com), when one often has nested repeater/flexible content fields.  
-```php
+```phtnml
 <?php
 // don't do this
 if(have_rows('bb_cs_content')) {
@@ -341,7 +341,7 @@ $community_title      = get_field('community_title'); ?>
 </section><!-- / community
 ```
 An example of how to indent when you have a lot of logic is below; if you need to do this, you should probably rethink how you're doing it.  
-```php
+```phtml
 <section>
 <?php // a ridiculous example
 if ($a_thing): ?>
