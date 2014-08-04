@@ -225,7 +225,7 @@ endwhile; endif; ?>
 <?php endif; ?>
 ```
 
-```php
+```phtml
 <!-- don't do this -->
 
       <?php
