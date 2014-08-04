@@ -140,3 +140,78 @@ Example:
 .text--bold {
   font-weight: bold;
 }
+```
+
+## Extends and Mixins
+Be careful of when to use an extend or mixin. Mixins could cause more code bloat, and extends could also cause cause unexpected output.
+
+**Extend**
+```scss
+%btn-base {
+  padding: 20px;
+  display: inline-block;
+}
+
+.btn--primary {
+  @extend %btn-base;
+  background: green;
+}
+
+.btn--secondary {
+  @extend %btn-base;
+  background: purple;
+}
+
+// Output
+.btn--primary, .btn--secondary {
+  padding: 20px;
+  display: inline-block;
+}
+
+.btn--primary {
+  background: green;
+}
+
+.btn--secondary {
+  background: purple;
+}
+```
+
+
+**Mixin**
+```scss
+@mixin btn-base() {
+  padding: 20px;
+  display: inline-block;
+}
+
+.btn--primary {
+  @include btn-base;
+  background: green;
+}
+
+.btn--secondary {
+  @include btn-base;
+  background: purple;
+}
+
+// Output
+.btn--primary {
+  padding: 20px;
+  display: inline-block;
+  background: green;
+}
+
+.btn--secondary {
+  padding: 20px;
+  display: inline-block;
+  background: purple;
+}
+```
+
+Further reading:
+- [Should you use a Sass mixin or @extend?](http://roytomeij.com/blog/2013/should-you-use-a-sass-mixin-or-extend.html)
+- [Understanding placeholder selectors](http://thesassway.com/intermediate/understanding-placeholder-selectors)
+- [Sass Placeholders Versus Mixins and Extends](http://miguelcamba.com/blog/2013/07/11/sass-placeholders-versus-mixins-and-extends/)
+- [What Nobody Told You About Sass’s @extend](http://www.sitepoint.com/sass-extend-nobody-told-you/)
+- [The Extend Concept](http://css-tricks.com/the-extend-concept/)
