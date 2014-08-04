@@ -44,7 +44,7 @@ You **should** structure sass in the following order:
     attribute: value;
 
     // .block__element:hover { ... }
-    &:hover {                          /* 4 */
+    &:hover {
       attribute: value;
     }
 
