@@ -10,10 +10,10 @@
 - End all declarations with a semi-colon.
 - Comma-separated property values should include a space after each comma (e.g., `box-shadow`).
 - Don't include spaces after commas within `rgb()`, `rgba()`, `hsl()`, `hsla()`, or `rect()` values. This helps differentiate multiple color values (comma, no space) from multiple property values (comma with space).
-- Don't prefix property values or color parameters with a leading zero (e.g., .5 instead of 0.5 and -.5px instead of -0.5px).
-- Lowercase all hex values, e.g., #fff. Lowercase letters are much easier to discern when scanning a document as they tend to have more unique shapes.
-- Use shorthand hex values where available, e.g., #fff instead of #ffffff.
-- Quote attribute values in selectors, e.g., input[type="text"].
+- Don't prefix property values or color parameters with a leading zero (e.g., `.5` instead of `0.5` and `-.5px` instead of `-0.5px`).
+- Lowercase all hex values, e.g., `#fff`. Lowercase letters are much easier to discern when scanning a document as they tend to have more unique shapes.
+- Use shorthand hex values where available, e.g., `#fff` instead of `#ffffff`.
+- Quote attribute values in selectors, e.g., `input[type="text"]`.
 - Avoid specifying units for zero values, e.g., `margin: 0;` instead of `margin: 0px;`.
 
 
