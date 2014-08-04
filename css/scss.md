@@ -15,7 +15,7 @@ You **should** structure sass in the following order:
 10. Elements within block
 
 ```scss
- .block {
+.block {
   @extend %extended-element;           /* 1 */
   @include some-mixin(val);            /* 2 */
   attribute: value;                    /* 3 */
