@@ -225,3 +225,118 @@ endwhile; endif; ?>
 <?php endif; ?>
 
 ```
+```php
+<!-- don't do this -->
+
+      <?php
+      // Variables
+      $community_background = get_field('background_image');
+      $community_title = get_field('community_title');
+      ?>
+
+
+<section class="section section--white section-community" style="background: url(<?php if($community_background) echo $community_background . ')' . ' fixed center center'; else echo 'blue'?>; background-size: cover" id="community">
+
+<!--     <div class="container"> -->
+      <div class="slider__content nf">
+        <div class="container container--slider__content">
+
+        <?php if($community_title) :?>
+        <p class="slider__content--title--smaller text--center"><?php echo $community_title;?></p>
+        <?php endif; ?>
+
+        <?php if (have_rows ('community_example') ) :?>
+          <?php while (have_rows ('community_example') ) : the_row();?>
+
+      <div class="container top-bump">
+        <?php
+        // Repeater Variables
+        $description = get_sub_field('example_description');
+        $small_title = get_sub_field('smaller_title');
+        ?>
+
+        <?php if($description) :?>
+          <p class="example-description"><?php echo $description; ?></p>
+        <?php endif; ?>
+
+        <?php if($small_title) :?>
+          <p class="example-small-title"><?php echo $small_title; ?></p>
+        <?php endif; ?>
+
+        <?php if (have_rows ('logos') ) :?>
+          <?php while (have_rows ('logos') ) : the_row(); ?>
+
+            <?php $the_logo = get_sub_field('example_logo'); ?>
+
+            <?php if($the_logo) :?>
+              <img src="<?php echo $the_logo ;?>" class="example-logo" />
+            <?php endif; ?>
+
+          <?php endwhile; ?>
+        <?php endif;?>
+
+      </div>
+      <!-- / repeated container -->
+
+        <?php endwhile; ?>
+      <?php endif;?>
+
+      </div>
+      <!-- / inside white box -->
+
+    </div>
+    <!-- /white box -->
+
+ <!--  </div> / community container end  -->
+
+</section>
+      <!-- / community -->
+
+
+
+<!-- do this -->
+<?php // Variables
+$community_background = get_field('background_image');
+$community_title      = get_field('community_title'); ?>
+<section id="community" class="section  section__community  section--white" style="background: <?php echo $community_background ? "url($community_background) fixed center center" : 'blue'; ?>;">
+    <div class="slider__content">
+        <div class="container slider__content--container">
+
+        <?php if ($community_title): ?>
+            <p class="slider__content-title--smaller text--center"><?php echo $community_title; ?></p>
+        <?php endif; ?>
+
+
+        <?php if (have_rows('community_example')): while (have_rows('community_example')): the_row(); ?>
+            <div class="container top-bump">
+
+            <?php // Repeater Variables
+            $description = get_sub_field('example_description');
+            $small_title = get_sub_field('smaller_title');
+
+            if ($description): ?>
+                <p class="example-description"><?php echo $description; ?></p>
+            <?php endif;
+
+
+            if ($small_title): ?>
+                <p class="example-small-title"><?php echo $small_title; ?></p>
+            <?php endif;
+
+
+            if (have_rows('logos')): while (have_rows('logos')): the_row();
+                $the_logo = get_sub_field('example_logo');
+
+                if ($the_logo): ?>
+                <img class="example-logo" src="<?php echo $the_logo; ?>">
+                <?php endif; ?>
+
+            <?php endwhile; endif; // end 'logos' loop ?>
+
+            </div><!-- / repeated container -->
+        <?php endwhile; endif; // end 'community_example' loop ?>
+
+        </div><!-- / inside white box -->
+    </div><!-- /white box -->
+</section><!-- / community
+```
