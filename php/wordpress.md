@@ -340,7 +340,7 @@ $community_title      = get_field('community_title'); ?>
     </div><!-- /white box -->
 </section><!-- / community
 ```
-
+An example of how to indent when you have a lot of logic is below; if you need to do this, you should probably rethink how you're doing it.  
 ```php
 <section>
 <?php // a ridiculous example
