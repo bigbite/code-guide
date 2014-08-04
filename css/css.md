@@ -106,7 +106,7 @@ When using vendor prefixed properties, you **should** indent each property such 
 ## Single declarations
 In instances where a rule set includes only one declaration, you **should** remove line breaks for readability and faster editing.
 
-```
+```css
 /* Single declarations on one line */
 .span1 { width: 60px; }
 .span2 { width: 140px; }
