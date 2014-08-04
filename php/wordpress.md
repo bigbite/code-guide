@@ -223,8 +223,8 @@ endwhile; endif; ?>
     </div>
 
 <?php endif; ?>
-
 ```
+
 ```php
 <!-- don't do this -->
 
@@ -339,4 +339,39 @@ $community_title      = get_field('community_title'); ?>
         </div><!-- / inside white box -->
     </div><!-- /white box -->
 </section><!-- / community
+```
+
+```php
+<section>
+<?php // a ridiculous example
+if ($a_thing): ?>
+
+    <div>
+    <?php if ($another_thing): ?>
+
+        <div>
+        <?php if ($yet_another_thing): ?>
+
+            <div>
+            <?php if ($wow_something_else): ?>
+
+                <ul>
+                <?php foreach ($things as $thing): ?>
+
+                    <li><?php echo $thing['array_index']; ?></li>
+
+                <?php endforeach; // end $things each ?>
+                </ul>
+
+            <?php endif; // end $wow_something_else if ?>
+            </div>
+
+        <?php endif; // end $yet_another_thing if ?>
+        </div>
+
+    <?php endif; // end $another_thing if ?>
+    </div>
+
+<?php endif; // end $a_thing if ?>
+</section>
 ```
