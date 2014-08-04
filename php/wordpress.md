@@ -35,6 +35,13 @@ You **should** specify attributes in the following order, where applicable:
 8. `required`  
 
 ### Building templates
+#### General
+**Always** use semantic names for variables, field names, post slugs, etc.  
+**Never** use ambiguous abbreviations; it is better to have a longer field name then an abbreviation that no-one understands (including oneself when referring back at a later date).  
+You **must not** use numerical characters when naming fields or variables, etc.  
+**Prefer** to use `the_*()` over `echo get_*()` function calls.  
+
+#### Logic
 You **must** group as much php at the top of a template file as possible, including any custom loop queries that will be used later in the file.
 Give any custom queries unique, semantic names, both to avoid collisions, and so that they can be recognised when used later. Curly braces should be used for any control structures, as per the PHP docs.  
 ```php  
@@ -53,6 +60,7 @@ $product_query = new WP_Query($product_args);
 <body>
     <!-- ... -->
 ```
+#### Global Variables
 You **must not**, unless absolutely necessary, override any of the global WP variables.
 ```php
 <?php /* Template Name: My Awesome Page */
@@ -87,33 +95,34 @@ $wp_query   = new WP_Query($product_args);
 $wp_query   = $temp_query;
 ?>
 ```
-Within the main body of the template (i.e. when you're mixing markup and PHP), colon notation `:` **must** be used for control structures.
+#### Nesting and Indentation
+Within the main body of the template (i.e. when you're mixing markup and PHP), colon notation `:` **must** be used for control structures.  
 You **should not** indent the opening and closing lines of a control structure beyond that of its parent HTML block, but you **should** indent any PHP or HTML within the control structure one level further than structure itself.  
 To aid readability, you **may** line break between control structures and markup within.
 ```php
 <div class="container">
-<?php if (have_rows("repeater_row")): while (have_rows("repeater_row")): the_row();
+<?php if (have_rows('repeater_row')): while (have_rows('repeater_row')): the_row();
     $the_layout = get_row_layout();
-    if ($the_layout === "primary_layout_type"): ?>
+    if ($the_layout === 'primary_layout_type'): ?>
 
     <div class="repeater__row">
-        <h2 class="repeater__title"><?php the_sub_field("primary_title"); ?></h2>
-        <p class="repeater__content"><?php the_sub_field("primary_content"); ?></p>
+        <h2 class="repeater__title"><?php the_sub_field('primary_title'); ?></h2>
+        <p class="repeater__content"><?php the_sub_field('primary_content'); ?></p>
     </div>
 
-<?php else if ($the_layout === "secondary_layout_type"): ?>
+<?php else if ($the_layout === 'secondary_layout_type'): ?>
 
     <div class="repeater__row--alt">
-        <h2 class="repeater__title"><?php the_sub_field("secondary_title"); ?></h2>
-        <p class="repeater__content"><?php the_sub_field("secondary_content"); ?></p>
+        <h2 class="repeater__title"><?php the_sub_field('secondary_title'); ?></h2>
+        <p class="repeater__content"><?php the_sub_field('secondary_content'); ?></p>
     </div>
 
-<?php else if ($the_layout === "nested_layout_type"): ?>
+<?php else if ($the_layout === 'nested_layout_type'): ?>
 
     <div class="nested-repeater__row">
-    <?php if (has_sub_field("nested_repeater_row")): while (has_sub_field("nested_repeater_row")): the_row(); ?>
+    <?php if (has_sub_field('nested_repeater_row')): while (has_sub_field('nested_repeater_row')): the_row(); ?>
 
-        <div class="nested-repeater__content"><?php the_sub_field("nested_repeater_content"); ?></div>
+        <div class="nested-repeater__content"><?php the_sub_field('nested_repeater_content'); ?></div>
 
     <?php endwhile; endif; // end nested repeater ?>
     </div>
@@ -129,4 +138,90 @@ When looping (either using WP functions or ACF), you **should** - *where possibl
     <!-- content -->
 <?php endwhile; endif; wp_reset_query(); ?>
 </div>
+```
+
+#### Large Templates
+When building large templates which contain a lot of logic, you **should** break the template up into partials, seperating logic from markup as much as possible. This is especially important when working with [ACF](http://www.advancedcustomfields.com), when one often has nested repeater/flexible content fields.  
+```php
+<?php
+// don't do this
+if(have_rows('bb_cs_content')) {
+    while( have_rows('bb_cs_content')) : the_row();
+        if(get_row_layout() === 'bb_cs_title') {
+            ?>
+            <h1 class="text--upper mb-d"><?php echo get_sub_field('bb_cs_title_content'); ?></h1>
+            <?php
+        }else if(get_row_layout() === 'bb_cs_subtitle') {
+            ?>
+            <h2 class="text--upper mb"><?php echo get_sub_field('bb_cs_sub_content'); ?></h2>
+            <?php
+        } else if(get_row_layout() === 'bb_cs_text') {
+            ?>
+            <h3><?php echo get_sub_field('bb_cs_txt_content'); ?></h3>
+            <?php
+        }else if(get_row_layout() === 'bb_cs_4_col') {
+            ?>
+            <div class="row m-d">
+                <div class="columns--3">
+                    <img src="<?php echo get_sub_field('bb_cs_image_1'); ?>" alt="">
+                </div>
+                <div class="columns--3">
+                    <img src="<?php echo get_sub_field('bb_cs_image_2'); ?>" alt="">
+                </div>
+                <div class="columns--3">
+                    <img src="<?php echo get_sub_field('bb_cs_image_3'); ?>" alt="">
+                </div>
+                <div class="columns--3">
+                    <img src="<?php echo get_sub_field('bb_cs_image_4'); ?>" alt="">
+                </div>
+            </div>
+            <?php
+        }
+    endwhile;
+}
+
+
+// do this
+if (have_rows('community_support_section')): while (have_rows('community_support_section')): the_row();
+    switch (get_row_layout()):
+        case 'section_title':
+            $part = 'title';
+            break;
+
+        case 'section_subtitle':
+            $part = 'subtitle';
+            break;
+
+        case 'section_content':
+            $part = 'content';
+            break;
+
+        case 'section_client_logos':
+            $part = 'client-logos';
+            break;
+    endswitch;
+
+    get_template_part("parts/community/$part");
+endwhile; endif; ?>
+
+<!-- in parts/community/title.php -->
+<h1 class="support__title  text--upper"><?php the_sub_field('title'); ?></h1>
+
+<!-- in parts/community/subtitle.php -->
+<span class="support__subtitle  text--upper  beta"><?php the_sub_field('subtitle') ?></span>
+
+<!-- in parts/community/content.php -->
+<?php if (have_rows('client_logos')): ?>
+
+    <div class="support-logos__wrapper">
+    <?php while (have_rows('client_logos')): the_row();
+        $client_logo = get_sub_field('logo'); ?>
+
+        <div class="support-logos__img"><img src="<?php echo $client_logo['url']; ?>" alt="<?php echo $client_logo['alt'] ?: $client_logo['title']; ?>"></div>
+
+    <?php endwhile; ?>
+    </div>
+
+<?php endif; ?>
+
 ```
