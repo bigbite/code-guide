@@ -50,6 +50,8 @@
 }
 ```
 
+<p style="text-align:left; font-size:12px">[Top](#css-style-guide)</p>
+
 ## Declaration order
 Related property declarations **should** be grouped together following the order:
 
