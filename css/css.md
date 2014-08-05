@@ -241,3 +241,61 @@ span { ... }
 /* Contextual sub-component or modifer */
 .element-heading { ... }
 ```
+
+
+## BEM Methology
+> Snippets from [this reccomended read](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/).
+BEM stands for Block, Element, Modifier.
+
+```css
+.block {}
+.block__element {}
+.block--modifier {}
+```
+
+- `.block` represents the higher level of an abstraction or component.
+- `.block__element` represents a descendent of `.block` that helps form `.block` as a whole.
+- `.block--modifier` represents a different state or version of `.block`.
+
+The reason for double rather than single hyphens and underscores is so that your block itself can be hyphen delimited, for example:
+
+```css
+.site-search {} /* Block */
+.site-search__field {} /* Element */
+.site-search--full {} /* Modifier */
+```
+
+### Examples
+
+
+**Bad**
+```html
+<div class="hero">
+  <div class="hero__body">
+    <h1 class="hero__body--title--large"></h1>
+  </div>
+</div>
+```
+
+```css
+.hero__body--title--large {}
+```
+
+This is a bad example due to title being an *element*, and involves unnecessary nesting.
+
+This could be written as:
+
+**Bad**
+```html
+<div class="hero">
+  <div class="hero__body">
+    <h1 class="hero__title"></h1>
+  </div>
+</div>
+```
+
+```css
+.hero__title--large {}
+```
+
+Here, `.hero` is the block element, and both `body` and `title` are elements within `.hero`. `.hero__title` does not need to be defined inside `.hero__body` as it makes it less modular, and more verbose.
