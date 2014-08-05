@@ -3,7 +3,7 @@
 ## Contents
 01. [Declaration order](#declaration-order)
 02. [Imports and Partials](#imports-and-partials)
-03. [Variables](#Variables)
+03. [Variables](#variables)
 04. [Nesting](#nesting)
 05. [Productivity](#productivity)
 06. [Interpolation](#interpolation)
