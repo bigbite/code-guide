@@ -50,7 +50,7 @@
 }
 ```
 
-<sub><sup><a href="#css-style-guide">Top</a></p></sub></sup>
+[Top](#css-style-guide)
 
 ***
 
@@ -94,6 +94,10 @@ Related property declarations **should** be grouped together following the order
 }
 ```
 
+[Top](#css-style-guide)
+
+***
+
 ## Media Queries
 You **must** place media queries as close to their relevant rule sets whenever possible. Don't bundle them all in a separate stylesheet or at the end of the document. Doing so only makes it easier for folks to miss them in the future.
 
@@ -109,6 +113,10 @@ You **must** place media queries as close to their relevant rule sets whenever p
 }
 ```
 
+[Top](#css-style-guide)
+
+***
+
 ## Prefixed properties
 When using vendor prefixed properties, you **should** indent each property such that the declaration's value lines up vertically for easy multi-line editing.
 
@@ -119,6 +127,10 @@ When using vendor prefixed properties, you **should** indent each property such 
           box-shadow: 0 1px 2px rgba(0,0,0,.15);
 }
 ```
+
+[Top](#css-style-guide)
+
+***
 
 ## Single declarations
 In instances where a rule set includes only one declaration, you **should** remove line breaks for readability and faster editing.
@@ -140,6 +152,10 @@ In instances where a rule set includes only one declaration, you **should** remo
 .icon-home      { background-position: 0 -20px; }
 .icon-account   { background-position: 0 -40px; }
 ```
+
+[Top](#css-style-guide)
+
+***
 
 ## Shorthand notation
 You **should** limit use of shorthand declarations to instances where you must explicitly set all the available values. Common overused shorthand properties include:\
@@ -173,7 +189,9 @@ The Mozilla Developer Network has a great article on [shorthand properties](http
   border-top-right-radius: 3px;
 }
 ```
+[Top](#css-style-guide)
 
+***
 
 ## Comments
 You **should** ensure your code is descriptive, well commented, and approachable by others. Great code comments convey context or purpose. Do not simply reiterate a component or class name.
@@ -193,6 +211,10 @@ Be sure to write in complete sentences for larger comments and succinct phrases 
   ...
 }
 ```
+
+[Top](#css-style-guide)
+
+***
 
 ## Class names
 - Keep classes lowercase and use dashes (not underscores or camelCase).
@@ -214,6 +236,10 @@ Be sure to write in complete sentences for larger comments and succinct phrases 
 .tweet-header { ... }
 ```
 
+[Top](#css-style-guide)
+
+***
+
 ## Selectors
 - You **should** use classes over generic element tag for optimum rendering performance.
 - **Avoid** using several attribute selectors (e.g., [class^="..."]) on commonly occuring components. Browser performance is known to be impacted by these.
@@ -232,6 +258,9 @@ span { ... }
 .tweet .avatar { ... }
 ```
 
+[Top](#css-style-guide)
+
+***
 
 ## Organization
 - Organize sections of code by component.
@@ -259,6 +288,9 @@ span { ... }
 .element-heading { ... }
 ```
 
+[Top](#css-style-guide)
+
+***
 
 ## BEM Methology
 > Snippets from [this reccomended read](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/).
@@ -281,6 +313,10 @@ The reason for double rather than single hyphens and underscores is so that your
 .site-search__field {} /* Element */
 .site-search--full {} /* Modifier */
 ```
+
+[Top](#css-style-guide)
+
+***
 
 ### Example
 An example of BEM in action.
@@ -316,3 +352,7 @@ This could be written as:
 ```
 
 Here, `.hero` is the block element, and both `body` and `title` are elements within `.hero`. `.hero__title` does not need to be defined inside `.hero__body` as it makes it less modular, and more verbose.
+
+[Top](#css-style-guide)
+
+***
