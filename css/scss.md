@@ -2,8 +2,12 @@
 
 ## Contents
 01. [Declaration order](#declaration-order)
-02. [Nesting](#nesting)
-03. [Extends and Mixins](#extends-and-mixins)
+02. [Imports and Partials](#imports-and-partials)
+03. [Variables](#Variables)
+04. [Nesting](#nesting)
+05. [Productivity](#productivity)
+06. [Interpolation](#interpolation)
+07. [Extends and Mixins](#extends-and-mixins)
 
 ###### Examples
 01. [Bad example of using extends](https://github.com/bigbitecreative/code-guide/blob/master/css/examples/scss/bad-extend-example.md)
@@ -74,6 +78,62 @@ You **should** structure sass in the following order:
   .elem-inside-block {                 /* 10 */
     attribute: value;
   }
+}
+```
+
+[Top](#)
+
+***
+
+## Imports and Partials
+1. Group `@import` rules in the main `app.scss / main.scss` file.
+2. Denate partials with a leading underscore.
+3. Use dashes and lowercase charachters when naming files.
+4. Avoid using the `.scss` extention in the `@import` declaration.
+
+```scss
+// Bad
+@import "components/progressBars.scss";
+@import "helpers/spacing.scss"
+
+// Good
+@import "components/_progress-bars";
+@import "helpers/_spacing";
+```
+
+## Variables
+You **should** name your variables in a modular way, adding modifiers to the end of the variable name.
+
+```scss
+// Bad
+$small-breakpoint: 35em;
+$large-breakpoint: 82em;
+
+// Good
+$breakpoint--small: 35em;
+$breakpoint--large: 82em;
+```
+
+[Top](#)
+
+***
+
+
+## Interpolation
+Use the Ruby-esque `#{}` to "shim" variables into your rules.
+
+```scss
+@mixin highlight($color, $side) {
+  border-#{$side}-color: $color;
+}
+
+.selector {
+  @include highlight(#f00, right);
+}
+
+// CSS output
+.selector {
+  border-right-color: #ff0;
 }
 ```
 
@@ -180,10 +240,114 @@ You **should not** nest just because you can. For elements with only one selecto
 
 ***
 
+## Productivity
+Avoid repetitive rule declarations by leveraging `@each`, `@for`, and `@while`.
+
+Use the @each directive to loop through items in a list.
+
+```scss
+// good
+$authors: kevin luke mark alex adam;
+
+@each $author in $authors {
+  .author-#{$author} {
+    background-image: url(author-#{$author}.jpg);
+  }
+}
+
+// CSS output
+.author-kevin {
+  background-image: url(author-kevin.jpg);
+}
+
+.author-luke {
+  background-image: url(author-luke.jpg);
+}
+
+.author-mark {
+  background-image: url(author-mark.jpg);
+}
+
+.author-alex {
+  background-image: url(author-alex.jpg);
+}
+
+.author-adam {
+  background-image: url(author-adam.jpg);
+}
+```
+
+`@for`
+
+```scss
+$columns: 4;
+
+@for $i from 1 through $columns {
+  .column-#{$i} {
+    width: ((100 / $columns) * $i) * 1%;
+  }
+}
+
+// CSS output
+.column-1 {
+  width: 25%;
+}
+
+.column-2 {
+  width: 50%;
+}
+
+.column-3 {
+  width: 75%;
+}
+
+.column-4 {
+  width: 100%;
+}
+```
+
+
+`@while`
+
+```scss
+$i: 1;
+
+.item {
+  position: absolute;
+  right: 0;
+}
+
+@while $i < 4 {
+  .item-#{$i} {
+    top: $i * 30px;
+  }
+  $i: $i + 1;
+}
+
+// CSS output
+.item {
+  position: absolute;
+  right: 0;
+}
+
+.item-1 {
+  top: 30px;
+}
+
+.item-2 {
+  top: 60px;
+}
+
+.item-3 {
+  top: 90px;
+}
+```
+
 ## Extends and Mixins
 Be careful of when to use an extend or mixin. Mixins could cause more code bloat, and extends could also cause cause unexpected output.
 
 **Extend**
+
 ```scss
 %btn-base {
   padding: 20px;
@@ -217,6 +381,7 @@ Be careful of when to use an extend or mixin. Mixins could cause more code bloat
 
 
 **Mixin**
+
 ```scss
 @mixin btn-base() {
   padding: 20px;
