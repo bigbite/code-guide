@@ -1,6 +1,19 @@
 # CSS Style Guide
 > Mostly from http://codeguide.co/#css-syntax by @mdo.
 
+## Contents
+01. [Syntax](#syntax)
+02. [Declaration order](#declaration-order)
+03. [Media Queries](#media-queries)
+04. [Prefixed properties](#prefixed-properties)
+05. [Single declarations](#single-declarations)
+06. [Shorthand notation](#shorthand-notation)
+07. [Comments](#comments)
+08. [Class names](#class-names)
+09. [Selectors](#selectors)
+10. [Organization](#organization)
+11. [BEM Methology](#bem-methology)
+
 ## Syntax
 - When grouping selectors, keep individual selectors to a single line.
 - Include one space before the opening brace of declaration blocks for legibility.
