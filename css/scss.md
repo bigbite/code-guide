@@ -243,7 +243,7 @@ You **should not** nest just because you can. For elements with only one selecto
 ## Productivity
 Avoid repetitive rule declarations by leveraging `@each`, `@for`, and `@while`.
 
-Use the @each directive to loop through items in a list.
+Use the `@each` directive to loop through items in a list.
 
 ```scss
 // good
