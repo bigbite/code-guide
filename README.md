@@ -9,7 +9,7 @@
 ##### JavaScript
 - [JavaScript](javascript/javascript.md)
 - [jQuery](javascript/jquery.md)
-- [Angular](javascript/angular.md)
+- [Angular](javascript/angularjs.md)
 - [Examples](javascript/examples/)
 
 ##### PHP
