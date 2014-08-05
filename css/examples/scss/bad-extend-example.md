@@ -2,6 +2,7 @@
 This is a bad example of using `@extend`.
 
 **Source**
+
 ```scss
 .line--after {
   margin-bottom: 64px;
@@ -31,8 +32,10 @@ This is a bad example of using `@extend`.
     }
   }
 }
+```
 
 **Output**
+
 ```css
 .line--after,
 .line--after--grey {
@@ -67,7 +70,8 @@ Much repeated code and overwriting of styles.
 ## Better ways
 
 **One**
-``scss
+
+```scss
 .line-after,
 .line-after--grey {
   position: relative;
@@ -95,6 +99,7 @@ Much repeated code and overwriting of styles.
 ```
 
 **Two**
+
 ```scss
 .line-after {
   &,
