@@ -142,6 +142,23 @@ Example:
 }
 ```
 
+### Nesting, because nesting
+You **should not** nest just because you can. For elements with only one selector inside, you **should not** nest.
+
+```scss
+// Bad
+.elem {
+  li {
+    // I like to nest it.
+  }
+}
+
+// Good
+.elem li {
+  // No nest!
+}
+```
+
 ## Extends and Mixins
 Be careful of when to use an extend or mixin. Mixins could cause more code bloat, and extends could also cause cause unexpected output.
 
