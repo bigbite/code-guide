@@ -6,7 +6,7 @@
 03. [Extends and Mixins](#extends-and-mixins)
 
 ### Examples
-01. [Bad example of using extends](https://github.com/bigbitecreative/code-guide/blob/master/css/examples/scss/bad-extend-example.md
+01. [Bad example of using extends](https://github.com/bigbitecreative/code-guide/blob/master/css/examples/scss/bad-extend-example.md)
 
 
 ## Declaration order
