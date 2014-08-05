@@ -94,7 +94,7 @@ You **should** structure sass in the following order:
 ```scss
 // Bad
 @import "components/progressBars.scss";
-@import "helpers/spacing.scss"
+@import "helpers/spacing.scss";
 
 // Good
 @import "components/_progress-bars";
