@@ -1,5 +1,14 @@
 # SCSS Style Guide
 
+## Contents
+01. [Declaration order](#declaration-order)
+02. [Nesting](#nesting)
+03. [Extends and Mixins](#extends-and-mixins)
+
+### Examples
+01. [Bad example of using extends](https://github.com/bigbitecreative/code-guide/blob/master/css/examples/scss/bad-extend-example.md
+
+
 ## Declaration order
 You **should** structure sass in the following order:
 
@@ -67,6 +76,10 @@ You **should** structure sass in the following order:
   }
 }
 ```
+
+[Top](#)
+
+***
 
 ## Nesting
 You **should not** nest more than 3 levels deep as it can produce bloated CSS. Only nest when it's what you mean and not because it's convenient. Consider re-facotring code to be more modular and re-usable.
@@ -142,6 +155,10 @@ Example:
 }
 ```
 
+[Top](#)
+
+***
+
 ### Nesting, because nesting
 You **should not** nest just because you can. For elements with only one selector inside, you **should not** nest.
 
@@ -158,6 +175,10 @@ You **should not** nest just because you can. For elements with only one selecto
   // No nest!
 }
 ```
+
+[Top](#)
+
+***
 
 ## Extends and Mixins
 Be careful of when to use an extend or mixin. Mixins could cause more code bloat, and extends could also cause cause unexpected output.
@@ -232,3 +253,8 @@ Further reading:
 - [Sass Placeholders Versus Mixins and Extends](http://miguelcamba.com/blog/2013/07/11/sass-placeholders-versus-mixins-and-extends/)
 - [What Nobody Told You About Sass’s @extend](http://www.sitepoint.com/sass-extend-nobody-told-you/)
 - [The Extend Concept](http://css-tricks.com/the-extend-concept/)
+
+
+[Top](#)
+
+***
