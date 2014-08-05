@@ -50,7 +50,7 @@
 }
 ```
 
-<sub><sup><a href="#css-style-guide">Top</a></p><sub><sup>
+<sub><sup><a href="#css-style-guide">Top</a></p></sub></sup>
 
 ***
 
