@@ -69,7 +69,8 @@ Much repeated code and overwriting of styles.
 
 ## Better ways
 
-**One**
+**Method One**
+> Strip back the nesting
 
 ```scss
 .line-after,
@@ -98,7 +99,8 @@ Much repeated code and overwriting of styles.
 }
 ```
 
-**Two**
+**Method Two**
+> Nesting everything inside the element
 
 ```scss
 .line-after {
@@ -159,4 +161,4 @@ Both the above methods will produce:
 }
 ```
 
-*Much cleaner output!*.
+*Much cleaner output!*
