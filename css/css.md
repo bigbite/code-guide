@@ -338,7 +338,7 @@ This is a bad example due to title being an *element*, and involves unnecessary 
 
 This could be written as:
 
-**Bad**
+**Good**
 ```html
 <div class="hero">
   <div class="hero__body">
