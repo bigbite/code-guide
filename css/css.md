@@ -50,7 +50,7 @@
 }
 ```
 
-[Top](#css-style-guide)
+[Top](#)
 
 ***
 
@@ -94,7 +94,7 @@ Related property declarations **should** be grouped together following the order
 }
 ```
 
-[Top](#css-style-guide)
+[Top](#)
 
 ***
 
@@ -113,7 +113,7 @@ You **must** place media queries as close to their relevant rule sets whenever p
 }
 ```
 
-[Top](#css-style-guide)
+[Top](#)
 
 ***
 
@@ -128,7 +128,7 @@ When using vendor prefixed properties, you **should** indent each property such 
 }
 ```
 
-[Top](#css-style-guide)
+[Top](#)
 
 ***
 
@@ -153,7 +153,7 @@ In instances where a rule set includes only one declaration, you **should** remo
 .icon-account   { background-position: 0 -40px; }
 ```
 
-[Top](#css-style-guide)
+[Top](#)
 
 ***
 
@@ -189,7 +189,7 @@ The Mozilla Developer Network has a great article on [shorthand properties](http
   border-top-right-radius: 3px;
 }
 ```
-[Top](#css-style-guide)
+[Top](#)
 
 ***
 
@@ -212,7 +212,7 @@ Be sure to write in complete sentences for larger comments and succinct phrases 
 }
 ```
 
-[Top](#css-style-guide)
+[Top](#)
 
 ***
 
@@ -236,7 +236,7 @@ Be sure to write in complete sentences for larger comments and succinct phrases 
 .tweet-header { ... }
 ```
 
-[Top](#css-style-guide)
+[Top](#)
 
 ***
 
@@ -258,7 +258,7 @@ span { ... }
 .tweet .avatar { ... }
 ```
 
-[Top](#css-style-guide)
+[Top](#)
 
 ***
 
@@ -288,7 +288,7 @@ span { ... }
 .element-heading { ... }
 ```
 
-[Top](#css-style-guide)
+[Top](#)
 
 ***
 
@@ -314,7 +314,7 @@ The reason for double rather than single hyphens and underscores is so that your
 .site-search--full {} /* Modifier */
 ```
 
-[Top](#css-style-guide)
+[Top](#)
 
 ***
 
@@ -353,6 +353,6 @@ This could be written as:
 
 Here, `.hero` is the block element, and both `body` and `title` are elements within `.hero`. `.hero__title` does not need to be defined inside `.hero__body` as it makes it less modular, and more verbose.
 
-[Top](#css-style-guide)
+[Top](#)
 
 ***
