@@ -265,8 +265,8 @@ The reason for double rather than single hyphens and underscores is so that your
 .site-search--full {} /* Modifier */
 ```
 
-### Examples
-
+### Example
+An example of BEM in action.
 
 **Bad**
 ```html
