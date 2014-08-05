@@ -215,10 +215,6 @@ Example:
 }
 ```
 
-[Top](#)
-
-***
-
 ### Nesting, because nesting
 You **should not** nest just because you can. For elements with only one selector inside, you **should not** nest.
 
