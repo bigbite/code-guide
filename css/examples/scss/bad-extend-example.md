@@ -2,6 +2,7 @@
 This is a bad example of using `@extend`.
 
 **Source**
+
 ```scss
 .line--after {
   margin-bottom: 64px;
@@ -31,8 +32,10 @@ This is a bad example of using `@extend`.
     }
   }
 }
+```
 
 **Output**
+
 ```css
 .line--after,
 .line--after--grey {
@@ -66,8 +69,10 @@ Much repeated code and overwriting of styles.
 
 ## Better ways
 
-**One**
-``scss
+**Method One**
+> Strip back the nesting
+
+```scss
 .line-after,
 .line-after--grey {
   position: relative;
@@ -94,7 +99,9 @@ Much repeated code and overwriting of styles.
 }
 ```
 
-**Two**
+**Method Two**
+> Nesting everything inside the element
+
 ```scss
 .line-after {
   &,
@@ -154,4 +161,4 @@ Both the above methods will produce:
 }
 ```
 
-*Much cleaner output!*.
+*Much cleaner output!*
