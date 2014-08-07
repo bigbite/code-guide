@@ -376,7 +376,7 @@ You **should not** pollute your markup with helper classes. Helpers classes shou
 }
 ```
 
-```markup
+```html
 <div class="span-3 shift-1 pad">
   <!-- code -->
 </div>
@@ -390,7 +390,7 @@ You **should not** pollute your markup with helper classes. Helpers classes shou
 }
 ```
 
-```markup
+```html
 <div class="section-wrap">
   <!-- code -->
 </div>
