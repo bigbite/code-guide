@@ -386,7 +386,8 @@ You **should not** pollute your markup with helper classes. Helpers classes shou
 ```css
 .section-wrap {
   width: 200px;
-  padding: 20px
+  padding: 20px;
+  margin-left: 100px;
 }
 ```
 
