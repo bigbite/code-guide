@@ -13,6 +13,7 @@
 09. [Selectors](#selectors)
 10. [Organization](#organization)
 11. [BEM Methology](#bem-methology)
+12. [Helpers](#helpers)
 
 ## Syntax
 - When grouping selectors, keep individual selectors to a single line.
@@ -352,6 +353,48 @@ This could be written as:
 ```
 
 Here, `.hero` is the block element, and both `body` and `title` are elements within `.hero`. `.hero__title` does not need to be defined inside `.hero__body` as it makes it less modular, and more verbose.
+
+[Top](#)
+
+***
+
+## Helpers
+You **should not** pollute your markup with helper classes. Helpers classes should only be used when overriding an exisiting style is neccessary.
+
+**Bad:**
+```css
+.span-10 {
+  width: 1000px
+}
+
+.shift-1 {
+  margin-left: 100px
+}
+
+.pad {
+  padding: 20px
+}
+```
+
+```markup
+<div class="span-3 shift-1 pad">
+  <!-- code -->
+</div>
+```
+
+**Good:**
+```css
+.section-wrap {
+  width: 200px;
+  padding: 20px
+}
+```
+
+```markup
+<div class="section-wrap">
+  <!-- code -->
+</div>
+```
 
 [Top](#)
 
