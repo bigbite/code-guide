@@ -349,7 +349,7 @@ This could be written as:
 ```
 
 ```css
-.hero__title--large {}
+.hero__title {}
 ```
 
 Here, `.hero` is the block element, and both `body` and `title` are elements within `.hero`. `.hero__title` does not need to be defined inside `.hero__body` as it makes it less modular, and more verbose.
