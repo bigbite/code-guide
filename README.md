@@ -7,7 +7,7 @@
 - [Examples](css/examples/)
 
 ##### JavaScript
-- [JavaScript](javascript/javascript.md)
+- [JavaScript](javascript/general.md)
 - [jQuery](javascript/jquery.md)
 - [Angular](javascript/angularjs.md)
 - [Examples](javascript/examples/)
