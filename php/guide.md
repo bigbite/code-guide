@@ -1,12 +1,12 @@
 ## General Conventions
 
 ### Encoding
-You ***must*** use `UTF-8` encoding only, with no `BOM` ([Byte Order Mark](http://en.wikipedia.org/wiki/Byte_order_mark#UTF-8)).
-You ***must not*** use a closing PHP tag in pure PHP files.
-You ***must*** leave a blank trailing line at the end of files.
+You ***must*** use `UTF-8` encoding only, with no `BOM` ([Byte Order Mark](http://en.wikipedia.org/wiki/Byte_order_mark#UTF-8)).  
+You ***must not*** use a closing PHP tag in pure PHP files.  
+You ***must*** leave a blank trailing line at the end of files.  
 
 ### Tags
-You ***must not*** use PHP short tags, or ASP-style tags.
+You ***must not*** use PHP short tags, or ASP-style tags.  
 ```php
 // use
 <?php ?>
@@ -30,8 +30,8 @@ You ***must not*** use PHP short tags, or ASP-style tags.
 8. `[]` are "Square Brackets"; `{}` are "Curly Braces"; `()` are "Parentheses".
 
 ### Indentation
-***Always*** indent using four spaces; ***never*** use tabs.
-When building arrays, you ***should*** insert a line break after opening the array, and indent key/value pairs one level beyond the opening bracket. You ***should*** align the `=>` operators when this will not require greater than eight spaces.
+***Always*** indent using four spaces; ***never*** use tabs.  
+When building arrays, you ***should*** insert a line break after opening the array, and indent key/value pairs one level beyond the opening bracket. You ***should*** align the `=>` operators when this will not require greater than eight spaces.  
 ```php
 <?php
 // looks good!
@@ -64,13 +64,13 @@ $sillyArrayKeys = [
 ```
 
 ### Variable Types
-Declare arrays with `[]`, instead of `array()`.
-Declare string literals with single quotes `'`.
-Declare strings containing variable substitution or apostrophes with double quotes `"`.
-Concatenate strings with the `.` operator; when concatenating on multiple lines, the `.` ***should*** precede the string fragment.
+Declare arrays with `[]`, instead of `array()`.  
+Declare string literals with single quotes `'`.  
+Declare strings containing variable substitution or apostrophes with double quotes `"`.  
+Concatenate strings with the `.` operator; when concatenating on multiple lines, the `.` ***should*** precede the string fragment.  
 
 ### Curly Braces
-For class & function declarations and control structures, the opening and closing curly braces ***must*** occur on their own lines, indented to the same column as the start of the declaration.
+For class & function declarations and control structures, the opening and closing curly braces ***must*** occur on their own lines, indented to the same column as the start of the declaration.  
 ```php
 <?php
 // do this
@@ -96,8 +96,8 @@ class Bar {
 ```
 
 ### Parentheses
-For function declarations and calls, you ***must not*** insert a space between the function name and the parentheses.
-For control structures, you ***must*** insert a space before and after the parentheses; you ***must not*** insert spaces inside the parentheses, except when multiple arguments are passed, in which case you ***must*** insert a space after every comma.
+For function declarations and calls, you ***must not*** insert a space between the function name and the parentheses.  
+For control structures, you ***must*** insert a space before and after the parentheses; you ***must not*** insert spaces inside the parentheses, except when multiple arguments are passed, in which case you ***must*** insert a space after every comma.  
 ```php
 <?php
 function foo($arg1, $arg2)
@@ -119,7 +119,7 @@ You ***should*** use parentheses with the following;
 - `exit()`
 - `die()`
 
-***Prefer*** the `*_once` variants for includes/requires, when applicable.
+***Prefer*** the `*_once` variants for includes/requires, when applicable.  
 ```php
 <?php
 // do this
@@ -134,9 +134,9 @@ return ($variable);
 ```
 
 ### Comments
-For multi-line comments, the docblock-style comment syntax (`/**/`) ***must*** be used.
-For single line comments, the double-slash comment syntax `//` ***should*** be used.
-Functions should be preceded by a full docblock.
+For multi-line comments, the docblock-style comment syntax (`/**/`) ***must*** be used.  
+For single line comments, the double-slash comment syntax `//` ***should*** be used.  
+Functions should be preceded by a full docblock.  
 ```php
 // @todo: fix this mess
 /**
@@ -148,9 +148,9 @@ Functions should be preceded by a full docblock.
 ```
 
 ### Other
-You ***must not*** use `eval()`. Ever.
-You ***must*** terminate every statement with a semi-colon (`;`).
-You ***must not*** modify the PHP environment at runtime; i.e. don't do this:
+You ***must not*** use `eval()`. Ever.  
+You ***must*** terminate every statement with a semi-colon (`;`).  
+You ***must not*** modify the PHP environment at runtime; i.e. don't do this:  
 ```php
 <?php
 ini_set('foo', 'bar');
@@ -159,7 +159,7 @@ ini_set('foo', 'bar');
 ## Control Structures
 
 ### If
-In single-line `if` statements, you ***should not*** leave out the parentheses.
+In single-line `if` statements, you ***should not*** leave out the parentheses.  
 ```php
 <?php
 if (/* expression */)
@@ -168,7 +168,7 @@ if (/* expression */)
 }
 ```
 
-For multi-line `if` statements, or one with multiple conditions, you ***must*** follow this convention. Note the curly brace placement, whitespacing, and indentation.
+For multi-line `if` statements, or one with multiple conditions, you ***must*** follow this convention. Note the curly brace placement, whitespacing, and indentation.  
 ```php
 <?php
 if (/* expression */)
@@ -192,7 +192,7 @@ else
 }
 ```
 
-If you have multiple expressions per condition, you ***should*** split them onto multiple lines if it will aid readability, with the operands preceeding each expression.
+If you have multiple expressions per condition, you ***should*** split them onto multiple lines if it will aid readability, with the operands preceeding each expression.  
 ```php
 <?php
 if ((condition_one()
@@ -209,7 +209,7 @@ if (  (condition_one() && condition_two())
     // do something
 }
 ```
-Or, in some circumstancces, it may be better to simplify the expressions.
+Or, in some circumstancces, it may be better to simplify the expressions.  
 ```php
 <?php
 $isFoo = (condition_one() && condition_two());
@@ -219,7 +219,7 @@ if ($isFoo || condition_three())
 }
 ```
 
-When using ternary operators, you ***may*** break each clause onto a new line.
+When using ternary operators, you ***may*** break each clause onto a new line.  
 ```php
 <?php
 $a = $condition === true
@@ -228,7 +228,7 @@ $a = $condition === true
 ```
 
 ### While/for/foreach
-While/for/foreach loops ***must*** follow the below pattern.
+While/for/foreach loops ***must*** follow the below pattern.  
 ```php
 <?php
 // while
@@ -258,7 +258,7 @@ foreach ($myArray as $key => $value)
 ```
 
 ### Switch
-Switch statements ***must*** follow the below convention, with specific emphasis on indentation. If a case falls through, you ***must*** comment to state that the behaviour is intentional.
+Switch statements ***must*** follow the below convention, with specific emphasis on indentation. If a case falls through, you ***must*** comment to state that the behaviour is intentional.  
 ```php
 <?php
 switch (/* var */)
@@ -283,7 +283,7 @@ switch (/* var */)
 ```
 
 ### Try/catch
-Try/catch blocks ***must*** follow the below pattern.
+Try/catch blocks ***must*** follow the below pattern.  
 ```php
 <?php
 try
@@ -301,16 +301,16 @@ catch (AnotherExceptionType $e)
 ```
 
 ## Classes: General
-Methods ***should*** be declared in the following order:
-1. constructor
-2. public
-3. protected
-4. private
-5. destructor
+Methods ***should*** be declared in the following order:  
+1. constructor  
+2. public  
+3. protected  
+4. private  
+5. destructor  
 
 
 ## Classes: Namespace Declarations
--Namespace declarations ***must*** be preceeded and succeeded by a blank line.
+-Namespace declarations ***must*** be preceeded and succeeded by a blank line.  
 ```php
 <?php
 
@@ -322,7 +322,7 @@ use Vendor\Foo;
 
 
 ## Classes: Namespace Imports
-`Use` statements ***must*** be one-per-line, preceded and succeeded by a blank line.
+`Use` statements ***must*** be one-per-line, preceded and succeeded by a blank line.  
 ```php
 <?php
 
@@ -342,7 +342,7 @@ use VendorTwo\Bar;
 ```
 
 ## Classes: Class Declarations
-When defining classes that extend/implement other classes/interfaces, those declarations ***must*** occur on the same line as the class definition.
+When defining classes that extend/implement other classes/interfaces, those declarations ***must*** occur on the same line as the class definition.  
 ```php
 <?php
 
@@ -365,10 +365,10 @@ class FooBar extends ParentFoo implements
 ```
 
 ## Classes: Visibility
-Visibility ***must*** be declared on all members, including `public`.
-Keywords `abstract`, and `final` ***must*** preceed visibility, where applicable.
-Keyword `static` ***must*** succeed visibility, where applicable.
-You ***may*** indent the members to the same column to aid readability.
+Visibility ***must*** be declared on all members, including `public`.  
+Keywords `abstract`, and `final` ***must*** preceed visibility, where applicable.  
+Keyword `static` ***must*** succeed visibility, where applicable.  
+You ***may*** indent the members to the same column to aid readability.  
 ```php
 <?php
 
@@ -385,7 +385,7 @@ class Foo
 ```
 
 ## Functions: General
-Return from a function as early as possible.
+Return from a function as early as possible.  
 ```php
 <?php
 // do this
@@ -413,7 +413,7 @@ function foo($bar)
 }
 ```
 
-Arguments with defaults ***should*** go at the end of the argument list.
+Arguments with defaults ***should*** go at the end of the argument list.  
 ```php
 <?php
 function fooBar($arg1, $arg2, $arg3, $arg4 = [1, 2, 3, 4, 5])
@@ -423,8 +423,8 @@ function fooBar($arg1, $arg2, $arg3, $arg4 = [1, 2, 3, 4, 5])
 ```
 
 ## Functions: Closures
-You ***must*** include a space before and after the parentheses, and after the `use` keyword, if applicable.
-It is ***preferred*** that the whole statement appear on a single line, except in the case of long argument/variable lists, in which case you ***may*** use line breaks.
+You ***must*** include a space before and after the parentheses, and after the `use` keyword, if applicable.  
+It is ***preferred*** that the whole statement appear on a single line, except in the case of long argument/variable lists, in which case you ***may*** use line breaks.  
 ```php
 <?php
 $closureWithArgs = function ($arg1, $arg2)

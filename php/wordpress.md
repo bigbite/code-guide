@@ -1,14 +1,14 @@
 # WordPress PHP
-Files containing only PHP **must** follow the [PHP style guide]().  
-Files containing mixed markup and PHP **must** adhere to the following.
+Files containing only PHP ***must*** follow the [PHP style guide]().
+Files containing mixed markup and PHP ***must*** adhere to the following.
 
 ## Directory Structure
-When not using a default WP template file (`page.php`, `index.php`, etc), any template files should reside within a directory within the theme root called `templates-`. Note the trailing dash `-`; this is so that, when WP generates the `<body>` class name, we don't end up with one like `page-template-templatesmy-awesome-page-php`. You **may** use a trailing `_`, instead, but underscores **should not** be used for class names.
+When not using a default WP template file (`page.php`, `index.php`, etc), any template files should reside within a directory within the theme root called `templates-`. Note the trailing dash `-`; this is so that, when WP generates the `<body>` class name, we don't end up with one like `page-template-templatesmy-awesome-page-php`. You ***may*** use a trailing `_`, instead, but underscores ***should not*** be used for class names.
 
 ## Templating
 ### Naming Templates
-**Always** name the file the same as the template itself, lowercased, and replacing spaces with dashes. A template named `My Awesome Page` would be named on the filesystem as `my-awesome-page.php`.  
-The template name **must** immediately follow the opening PHP tag; there is no need to include the word `template` in the template name definition, since the WP panel gives context.  
+***always*** name the file the same as the template itself, lowercased, and replacing spaces with dashes. A template named `My Awesome Page` would be named on the filesystem as `my-awesome-page.php`.
+The template name ***must*** immediately follow the opening PHP tag; there is no need to include the word `template` in the template name definition, since the WP panel gives context.
 ```php
 <?php /* Template Name: My Awesome Page */ ?>
 ```
@@ -20,11 +20,11 @@ Line two.
 get_header(); ?>
 ```
 ### get_footer()
-The WP footer should be declared anywhere near the end of the file that makes sense in the current context, ideally as close to the bottom as possible. If you have template-specific logic that needs to succeed the `get_footer();` function, by all means place it below the call, rather than attempt to coerce WP.  
-You **must** close PHP at the end of a WP template file.
+The WP footer should be declared anywhere near the end of the file that makes sense in the current context, ideally as close to the bottom as possible. If you have template-specific logic that needs to succeed the `get_footer();` function, by all means place it below the call, rather than attempt to coerce WP.
+You ***must*** close PHP at the end of a WP template file.
 
 ### HTML Tags
-You **should** specify attributes in the following order, where applicable:  
+You ***should*** specify attributes in the following order, where applicable:
 1. `id`  
 2. `class`  
 3. `href`, `src`, or `type`  
@@ -32,19 +32,20 @@ You **should** specify attributes in the following order, where applicable:
 5. input attrs hitherto unspecified  
 6. `data-*`  
 7. `target` or `value`  
-8. `required`  
+8. `required`, `disabled`  
+9. `aria-*`  
 
 ### Building templates
 #### General
-**Always** use semantic names for variables, field names, post slugs, etc.  
-**Never** use ambiguous abbreviations; it is better to have a longer field name then an abbreviation that no-one understands (including oneself when referring back at a later date).  
-You **must not** use numerical characters when naming fields or variables, etc.  
-**Prefer** to use `the_*()` over `echo get_*()` function calls.  
+***Always*** use semantic names for variables, field names, post slugs, etc.
+***Never*** use ambiguous abbreviations; it is better to have a longer field name then an abbreviation that no-one understands (including oneself when referring back at a later date).
+You ***must not*** use numerical characters when naming fields or variables, etc.
+**Prefer** to use `the_*()` over `echo get_*()` function calls.
 
 #### Logic
-You **must** group as much php at the top of a template file as possible, including any custom loop queries that will be used later in the file.
-Give any custom queries unique, semantic names, both to avoid collisions, and so that they can be recognised when used later. Curly braces should be used for any control structures, as per the PHP docs.  
-```php  
+You ***must*** group as much php at the top of a template file as possible, including any custom loop queries that will be used later in the file.
+Give any custom queries unique, semantic names, both to avoid collisions, and so that they can be recognised when used later. Curly braces should be used for any control structures, as per the PHP docs.
+```php
 <?php /* Template Name: My Awesome Page */
 get_header();
 
@@ -61,7 +62,7 @@ $product_query = new WP_Query($product_args);
     <!-- ... -->
 ```
 #### Global Variables
-You **must not**, unless absolutely necessary, override any of the global WP variables.
+You ***must not***, unless absolutely necessary, override any of the global WP variables.
 ```php
 <?php /* Template Name: My Awesome Page */
 get_header();
@@ -77,7 +78,7 @@ $product_args  = [
 $wp_query = new WP_Query($product_args);
 
 /*
- * if you feel that you **must** override a global,
+ * if you feel that you ***must*** override a global,
  * keep a copy of it, and reassign it when you're
  * done with your logic.
  */
@@ -96,9 +97,9 @@ $wp_query   = $temp_query;
 ?>
 ```
 #### Nesting and Indentation
-Within the main body of the template (i.e. when you're mixing markup and PHP), colon notation `:` **must** be used for control structures.  
-You **should not** indent the opening and closing lines of a control structure beyond that of its parent HTML block, but you **should** indent any PHP or HTML within the control structure one level further than structure itself.  
-To aid readability, you **may** line break between control structures and markup within.
+Within the main body of the template (i.e. when you're mixing markup and PHP), colon notation `:` ***must*** be used for control structures.
+You ***should not*** indent the opening and closing lines of a control structure beyond that of its parent HTML block, but you ***should*** indent any PHP or HTML within the control structure one level further than structure itself.
+To aid readability, you ***may*** line break between control structures and markup within.
 ```phtml
 <div class="container">
 <?php if (have_rows('repeater_row')): while (have_rows('repeater_row')): the_row();
@@ -131,7 +132,7 @@ To aid readability, you **may** line break between control structures and markup
 endwhile; endif; // end repeater ?>
 </div>
 ```
-When looping (either using WP functions or ACF), you **should** - *where possible* - same-line the necessary code.
+When looping (either using WP functions or ACF), you ***should*** - *where possible* - same-line the necessary code.
 ```phtml
 <div class="container">
 <?php if (have_posts()): while (have_posts()): the_post(); ?>
@@ -141,7 +142,7 @@ When looping (either using WP functions or ACF), you **should** - *where possibl
 ```
 
 #### Large Templates
-When building large templates which contain a lot of logic, you **should** break the template up into partials, seperating logic from markup as much as possible. This is especially important when working with [ACF](http://www.advancedcustomfields.com), when one often has nested repeater/flexible content fields.  
+When building large templates which contain a lot of logic, you ***should*** break the template up into partials, seperating logic from markup as much as possible. This is especially important when working with [ACF](http://www.advancedcustomfields.com), when one often has nested repeater/flexible content fields.
 ```phtml
 <?php
 // don't do this
@@ -340,7 +341,7 @@ $community_title      = get_field('community_title'); ?>
     </div><!-- /white box -->
 </section><!-- / community
 ```
-An example of how to indent when you have a lot of logic is below; if you need to do this, you should probably rethink how you're doing it.  
+An example of how to indent when you have a lot of logic is below; if you need to do this, you should probably rethink how you're doing it.
 ```phtml
 <section>
 <?php // a ridiculous example

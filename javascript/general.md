@@ -1,6 +1,6 @@
 # JavaScript style guide
 
-This guide covers basic JavaScript authoring; for ES2015-specific guidelines, please see the [ES2015](es2015.md) guide.
+This guide covers basic JavaScript authoring; for ES2015-specific guidelines, please see the [ES2015](es2015.md) guide.  
 In QuickStart, [lodash](//lodash.com) and [postal](//github.com/postaljs/postal.js) are available both globally and to all modules (without the need to import/require).
 
 ## Variables
@@ -8,14 +8,14 @@ In QuickStart, [lodash](//lodash.com) and [postal](//github.com/postaljs/postal.
 ### Variable declarations
 Variables ***must*** be defined one per line.
 
-**Bad:**
+**Bad:**  
 ```js
 var one   = 'one',
     two   = 'two',
     three = 'three';
 ```
 
-**Good:**
+**Good:**  
 ```js
 var one   = 'one';
 var two   = 'two';
@@ -25,13 +25,13 @@ var three = 'three';
 ### Variable instantiation
 Variables ***should*** be instantiated using literal over constructor notation.
 
-**Bad:**
+**Bad:**  
 ```js
 var scopeObjVar = new Object();
 var scopeArrVar = new Array();
 ```
 
-**Good:**
+**Good:**  
 ```js
 var scopeObjVar = {};
 var scopeArrVar = [];
@@ -65,14 +65,14 @@ theArray.forEach(function (value, index) {
 ## Loops
 When performing object loops, you ***must*** wrap the loop body in an if statement, to check that the current property is a member of the subject, and not an inherited property.
 
-**Bad:**
+**Bad:**  
 ```js
 for (prop in theObject) {
   // logic
 }
 ```
 
-**Good:**
+**Good:**  
 ```js
 for (prop in theObject) {
   if (theObject.hasOwnProperty(prop)) {
@@ -94,12 +94,12 @@ for (let prop in theObject) {
 ### Accessing Object Properties
 Object properties ***must*** be accessed using dot notation when the property being accessed is not dynamic.
 
-**Bad:**
+**Bad:**  
 ```js
 console.log(object[prop][anotherProp]);
 ```
 
-**Good:**
+**Good:**  
 ```js
 console.log(object.prop.anotherProp);
 ```
@@ -107,7 +107,7 @@ console.log(object.prop.anotherProp);
 ### Prototype Extension
 ***Never*** extend the prototype of native objects, or overwrite native object properties.
 
-**Bad:**
+**Bad:**  
 ```js
 Array.prototype.empty = function () {
   return !this.length;
@@ -120,7 +120,7 @@ if (a.empty()) {
 }
 ```
 
-**Good:**
+**Good:**  
 ```js
 var a = [];
 
@@ -132,14 +132,14 @@ if (!a.length) {
 ### Adding Properties to Constructors
 Adding properties to an object by overwriting the prototype makes inheritance impossible; appending to a prototype means that all properties inherited from the parent are still accessible to the child.
 
-**Example:**
+**Example:**  
 ```js
 function BigBite () {
   console.log('foo');
 }
 ```
 
-**Bad:**
+**Bad:**  
 ```js
 BigBite.prototype = {
   staff: ['jason', 'mark', 'iain', 'natalie'],
@@ -150,7 +150,7 @@ BigBite.prototype = {
 };
 ```
 
-**Good:**
+**Good:**  
 ```js
 BigBite.prototype.staff = ['jason', 'mark', 'iain', 'natalie'];
 BigBite.prototype.addMember = function (name) {
@@ -163,7 +163,7 @@ BigBite.prototype.addMember = function (name) {
 ### Binding Data to Events
 When passing data to an event you **should** pass an object, rather than a value; passing an object allows additional data to be added at a later date.
 
-**Bad:**
+**Bad:**  
 ```js
 pubsub.fire('eventName', value);
 pubsub.listen('eventName', function (event, value) {
@@ -171,7 +171,7 @@ pubsub.listen('eventName', function (event, value) {
 });
 ```
 
-**Good:**
+**Good:**  
 ```js
 pubsub.fire('eventName', { item: value });
 pubsub.listen('eventName', function (event, data) {
@@ -199,14 +199,14 @@ The `'use strict'`; declaration ***must*** be used in the topmost level of funct
 ### Parentheses
 You ***must*** leave a space before and after function parentheses.
 
-**Bad:**
+**Bad:**  
 ```js
 function foo(){
   // stuff
 }
 ```
 
-**Good:**
+**Good:**  
 ```js
 function foo () {
   // stuff
@@ -216,7 +216,7 @@ function foo () {
 ### Dependency inversion
 Functions ***should not***, where possible, be bound to specifics. Instead, they should perform logic upon parameters passed to the function.
 
-**Bad:**
+**Bad:**  
 ```js
 function doSomething () {
   $selector = '#header';
@@ -224,7 +224,7 @@ function doSomething () {
 }
 ```
 
-**Good:**
+**Good:**  
 ```js
 function doSomething ($selector) {
   $selector = $selector || '#header';
@@ -267,7 +267,7 @@ Code blocks ***should*** be wrapped in an IIFE to prevent polluting the global n
 ### Argument spacing
 You ***should not*** add whitespace between parens. and arguments. You ***should*** space between comma-separated arguments.
 
-**Bad:**
+**Bad:**  
 ```js
 function doSomething ( arg, arg2 ) {
 
@@ -286,11 +286,11 @@ function doSomething (arg, arg2) {
 ```
 
 ### Argument lists
-If arguments supplied (whether it be to a conditional or a function) result in large line lengths, you ***should*** introduce line breaks, and the delimater ***must*** be on the start of the line.
-For functions/methods, if you are supplying many parameters, consider passing an object/array instead.
+If arguments supplied (whether it be to a conditional or a function) result in large line lengths, you ***should*** introduce line breaks, and the delimater ***must*** be on the start of the line.  
+For functions/methods, if you are supplying many parameters, consider passing an object/array instead.  
 For conditionals, consider whether your checks could be broken out into a separate method or block.
 
-**Good:**
+**Good:**  
 ```js
 if (conditionOne() && conditionTwo() && conditionThree()
   && reallyLongConditionFourThatTakesUpALotOfSpace()) {
@@ -301,14 +301,14 @@ if (conditionOne() && conditionTwo() && conditionThree()
 ### For statements
 You ***should not*** calculate length on each iteration and you ***should*** also declare the iterator variable at the top of a function.
 
-**Bad:**
+**Bad:**  
 ```js
 for (var i = 0; i < thing.length; i++) {
   // do stuff
 }
 ```
 
-**Good:**
+**Good:**  
 ```js
 var thingLength = thing.length;
 var i;
@@ -331,7 +331,7 @@ for (var i = 0, length = thing.length; i < length; i++) {
 4. You ***should not*** use curly braces when the `if` statement is one line.
 5. You ***should not*** inline an `if` statement.
 
-**Bad:**
+**Bad:**  
 ```js
 // 1.
 if (something)
@@ -362,7 +362,7 @@ if (something) {
 if (something) done();
 ```
 
-**Good:**
+**Good:**  
 ```js
 // 1.
 if (something) {
@@ -387,14 +387,14 @@ if (something)
 ### Equality
 ***Always*** use strict (in)equality operators, except when checking if something is `null` or `undefined`, when you may use the type-converting `==` syntax.
 
-**Good:**
+**Good:**  
 ```js
 a === b;
 c !== d;
 e == null;
 ```
 
-**Bad:**
+**Bad:**  
 ```js
 a == b;
 c != d;
@@ -404,14 +404,14 @@ e === null || e === undefined;
 ### Curly braces
 When using curly braces, ***always*** open them on the same line as the statement.
 
-**Good:**
+**Good:**  
 ```js
 function foo () {
   // something
 }
 ```
 
-**Bad:**
+**Bad:**  
 ```js
 function foo ()
 {
@@ -433,7 +433,7 @@ var _somePrivateMethod = function () {
 ### Return Values
 When possible, return an object from a function, to enable method chaining.
 
-**Bad:**
+**Bad:**  
 ```js
 function doSomething () {
   var $content = $('#content');
@@ -446,7 +446,7 @@ doSomething();
 $('#content').fadeOut();
 ```
 
-**Good:**
+**Good:**  
 ```js
 function doSomething () {
   var $content = $('#content');
@@ -484,7 +484,7 @@ function doSomething (selector) {
 ### General comments
 Multi line comments ***should*** use the `/* ... */` syntax; single line comments should use the `// ...` syntax.
 
-**Bad:**
+**Bad:**  
 ```js
 // This is not a very good
 // multi line comment
@@ -492,7 +492,7 @@ Multi line comments ***should*** use the `/* ... */` syntax; single line comment
 /* This is not a very good single line comment */
 ```
 
-**Good:**
+**Good:**  
 ```js
 /**
  * This is an awesome
@@ -506,5 +506,5 @@ Multi line comments ***should*** use the `/* ... */` syntax; single line comment
 You **should** only use one library at a time. Recommended libraries:
 
 - [jQuery](http://jquery.com/)
-- [Lo-Dash](http://lodash.com/)
+- [lodash](http://lodash.com/)
 - [AngularJS](https://angularjs.org/)
