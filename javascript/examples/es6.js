@@ -109,6 +109,11 @@ let maps = {
     });
   },
 
+  /**
+   * set the map position
+   *
+   * @param {LatLng Object}  pos  google maps latlng object
+   */
   setPos(pos) {
     if (pos) {
       this.map.setCenter(pos);
