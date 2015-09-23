@@ -50,10 +50,10 @@ let maps = {
    * @type {Object}
    */
   options: {
-    zoom: 13,
+    zoom:   13,
     styles: mapStyles,
     disableDefaultUI: true,
-    backgroundColor: '#2d2e30',
+    backgroundColor:  '#2d2e30',
     center: {
       // default to middlesbrough
       lat: 54.5796906,
@@ -92,11 +92,11 @@ let maps = {
     this.cache.locations[name] = coords;
 
     return new google.maps.Marker({
-      position: coords,
-      icon: this.image,
       raiseOnDrag: false,
+      position:    coords,
+      icon:  this.image,
       title: this.locations[index].title,
-      map: this.map
+      map:   this.map
     });
   },
 
@@ -150,8 +150,8 @@ let maps = {
     google.maps.event.addListener(this.map, 'idle', () => {
       postal.publish({
         channel: 'locations',
-        topic: 'mapidle',
-        data: this.cache
+        topic:   'mapidle',
+        data:    this.cache
       });
     });
 
