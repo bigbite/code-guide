@@ -1,5 +1,8 @@
 # JavaScript style guide
 
+This guide covers basic JavaScript authoring; for ES2015-specific guidelines, please see the [ES2015](es2015.md) guide.
+In QuickStart, [lodash](//lodash.com) and [postal](//github.com/postaljs/postal.js) are available both globally and to all modules (without the need to import/require).
+
 ## Variables
 
 ### Variable declarations
@@ -75,6 +78,16 @@ for (prop in theObject) {
   if (theObject.hasOwnProperty(prop)) {
     // logic
   }
+}
+
+// or
+
+for (let prop in theObject) {
+  if (!theObject.hasOwnProperty(prop)) {
+    continue;
+  }
+
+  // logic
 }
 ```
 
@@ -152,21 +165,19 @@ When passing data to an event you **should** pass an object, rather than a value
 
 **Bad:**
 ```js
-var.fire('eventName', value);
-var.listen('eventName', function (event, value) {
+pubsub.fire('eventName', value);
+pubsub.listen('eventName', function (event, value) {
   // do something with value
 });
 ```
 
 **Good:**
 ```js
-var.fire('eventName', { item: value });
-var.listen('eventName', function (event, data) {
+pubsub.fire('eventName', { item: value });
+pubsub.listen('eventName', function (event, data) {
   // do something with `data.item`
 });
 ```
-
-
 
 ## Functions
 
@@ -208,7 +219,7 @@ Functions ***should not***, where possible, be bound to specifics. Instead, they
 **Bad:**
 ```js
 function doSomething () {
-  $selector = $('#header');
+  $selector = '#header';
   // ...
 }
 ```
@@ -216,7 +227,7 @@ function doSomething () {
 **Good:**
 ```js
 function doSomething ($selector) {
-  $selector = $selector || $('#header');
+  $selector = $selector || '#header';
   // ...
 }
 ```
@@ -276,6 +287,8 @@ function doSomething (arg, arg2) {
 
 ### Argument lists
 If arguments supplied (whether it be to a conditional or a function) result in large line lengths, you ***should*** introduce line breaks, and the delimater ***must*** be on the start of the line.
+For functions/methods, if you are supplying many parameters, consider passing an object/array instead.
+For conditionals, consider whether your checks could be broken out into a separate method or block.
 
 **Good:**
 ```js
@@ -301,6 +314,12 @@ var thingLength = thing.length;
 var i;
 
 for (i = 0; i < thingLength; i++) {
+  // do stuff
+}
+
+// or
+
+for (var i = 0, length = thing.length; i < length; i++) {
   // do stuff
 }
 ```
