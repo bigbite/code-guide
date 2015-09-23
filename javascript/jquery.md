@@ -7,15 +7,15 @@ script is parsed, the document will already be ready. Use the IIFE to pass in jQ
 **Bad:**
 ```js
 $(document).ready(function () {
-   // ... 
+   // ...
 });
 ```
 
 **Good:**
 ```js
-(function (document, window, $) {
+(function (window, document, $) {
   // ...
-}(document, window, jQuery));
+}(window, document, jQuery));
 ```
 
 ## Selectors
