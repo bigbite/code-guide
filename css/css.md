@@ -159,7 +159,7 @@ In instances where a rule set includes only one declaration, you **should** remo
 ***
 
 ## Shorthand notation
-You **should** limit use of shorthand declarations to instances where you must explicitly set all the available values. Common overused shorthand properties include:\
+You **should** limit use of shorthand declarations to instances where you must explicitly set all the available values. Common overused shorthand properties include:
 
 - `padding`
 - `margin`
@@ -219,7 +219,7 @@ Be sure to write in complete sentences for larger comments and succinct phrases 
 
 ## Class names
 - Keep classes lowercase and use dashes (not underscores or camelCase).
-- Avoid excessive and arbitrary shorthand notation. .btn is useful for button, but .s doesn't mean anything.
+- Avoid excessive and arbitrary shorthand notation. `.btn` is useful for button, but `.s` doesn't mean anything.
 - Keep classes as short and succinct as possible.
 - Use meaningful names; use structural or purposeful names over presentational.
 - Prefix classes based on the closest parent or base class.
